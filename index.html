@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2457d6">
+  <title>Rota Jovem | Desenvolvimento e oportunidades</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header class="barra-superior">
+    <a class="marca" href="#inicio" aria-label="Rota Jovem, início"><span
+        class="simbolo-marca">R</span><span>rota<strong>jovem</strong></span></a>
+    <button class="menu-celular" id="mobileMenu" aria-label="Abrir menu">Menu</button>
+    <nav id="mainNav" class="navegacao-principal">
+      <a href="#inicio" data-view="home" id="homeNavLink">Início</a>
+    </nav>
+    <div class="acoes-superiores" id="topActions">
+      <button class="botao botao-discreto" data-action="open-login">Entrar</button>
+      <button class="botao botao-principal" data-action="open-register">Criar conta</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="tela ativo" id="view-home">
+      <section class="destaque-inicial estrutura" id="inicio">
+        <div class="texto-inicial">
+          <p class="sobretitulo">Desenvolvimento, preparo e oportunidade</p>
+          <h1>Seu próximo passo profissional <em>começa aqui.</em></h1>
+          <p class="texto-chamada">Descubra seu caminho, desenvolva suas habilidades e encontre oportunidades para
+            começar.</p>
+          <div class="linha-botoes">
+            <button class="botao botao-principal botao-grande" data-action="open-register" data-role="student">Sou
+              estudante</button>
+            <button class="botao botao-contorno botao-grande" data-action="open-register" data-role="company">Sou
+              empresa</button>
+          </div>
+
+        </div>
+        <div class="visual-inicial" aria-hidden="true">
+          <div class="disco-inicial"></div>
+          <div class="cartao-inicial">
+            <span class="rotulo-pequeno">SUA ROTA</span>
+            <div class="linha-ilustracao"></div>
+            <div class="linha-ilustracao curto"></div>
+            <div class="etapa-ilustrada"><span>01</span>
+              <div><b>Descobrir</b><small>Interesses e caminhos</small></div>
+            </div>
+            <div class="etapa-ilustrada"><span>02</span>
+              <div><b>Desenvolver</b><small>Prepare seus próximos passos</small></div>
+            </div>
+            <div class="etapa-ilustrada"><span>03</span>
+              <div><b>Conectar</b><small>Novas oportunidades</small></div>
+            </div>
+          </div>
+          <div class="etiqueta-ilustrada etiqueta-amarela">Aprender</div>
+          <div class="etiqueta-ilustrada etiqueta-rosa">Avançar</div>
+        </div>
+      </section>
+      <section class="avaliacoes estrutura" aria-labelledby="testimonialsTitle">
+        <div class="titulo-avaliacoes">
+          <p class="sobretitulo">Histórias que inspiram</p>
+          <h2 id="testimonialsTitle">Novos caminhos começam com uma oportunidade.</h2>
+          <div class="abas-avaliacoes" role="tablist" aria-label="Tipo de depoimento"><button type="button"
+              class="aba-avaliacao ativo" data-testimonial-type="student" role="tab"
+              aria-selected="true">Estudantes</button><button type="button" class="aba-avaliacao"
+              data-testimonial-type="company" role="tab" aria-selected="false">Empresas</button></div>
+        </div>
+        <div class="carrossel-avaliacoes" aria-live="polite"><button class="seta-avaliacao" type="button"
+            id="testimonialPrev" aria-label="Depoimento anterior">‹</button>
+          <article class="cartao-avaliacao">
+            <div class="estrelas-avaliacao" aria-label="5 de 5 estrelas">★★★★★</div>
+            <blockquote id="testimonialQuote">“A plataforma me ajudou a organizar os próximos passos e enxergar
+              possibilidades que eu ainda não conhecia.”</blockquote>
+            <p class="autor-avaliacao" id="testimonialAuthor">Estudante participante</p><small
+              class="nota-avaliacao">Exemplo ilustrativo de depoimento — não é uma avaliação real de cliente.</small>
+          </article><button class="seta-avaliacao" type="button" id="testimonialNext"
+            aria-label="Próximo depoimento">›</button>
+        </div>
+        <div class="pontos-carrossel" id="testimonialDots" aria-label="Selecionar depoimento"><button class="ativo"
+            data-testimonial-index="0" aria-label="Depoimento 1"></button><button data-testimonial-index="1"
+            aria-label="Depoimento 2"></button><button data-testimonial-index="2" aria-label="Depoimento 3"></button>
+        </div>
+      </section>
+    </section>
+
+    <section class="tela estrutura painel" id="view-student">
+      <aside class="navegacao-lateral">
+        <button class="botao-menu-area" type="button" aria-expanded="false" aria-controls="studentMenuLinks"><span
+            class="linhas-menu" aria-hidden="true"><i></i><i></i><i></i></span> Minha área</button>
+        <div class="links-menu-area" id="studentMenuLinks">
+          <p class="sobretitulo">Área do estudante</p>
+          <h2 id="studentGreeting">Sua jornada</h2>
+          <button class="link-lateral ativo" data-panel="student-overview">Visão geral</button>
+          <button class="link-lateral" data-panel="career">Orientação profissional</button>
+          <button class="link-lateral" data-panel="learning">Cursos e certificados</button>
+          <button class="link-lateral" data-panel="resume">Meu currículo</button>
+          <button class="link-lateral" data-panel="student-jobs">Encontrar vagas</button>
+          <button class="link-lateral" data-panel="tasks">Microtarefas</button>
+          <button class="link-lateral" data-panel="ranking">Ranking e reconhecimento</button>
+          <button class="link-lateral" data-panel="profile">Meu perfil</button>
+        </div>
+      </aside>
+      <div class="conteudo-painel">
+        <section class="painel-cartao ativo" id="panel-student-overview">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Seu espaço</p>
+              <h1>Continue de onde parou.</h1>
+              <p>Organize seu desenvolvimento e acompanhe seus próximos passos.</p>
+            </div>
+          </div>
+          <section class="cartao-conteudo trilha-montanha">
+            <div class="introducao-trilha">
+              <div>
+                <p class="sobretitulo">Sua trilha</p>
+                <h2>Um passo de cada vez.</h2>
+                <p>Avance pela montanha no seu ritmo. Cada etapa abre um novo caminho.</p>
+              </div><span class="marcador-trilha">ROTA<br>JOVEM</span>
+            </div>
+            <div class="caminho-trilha" id="routePath"><button class="parada-trilha" data-panel-link="career"><span
+                  class="numero-etapa">1</span><strong>Descobrir</strong><small>Orientação profissional</small><i
+                  id="routeStatus1">Ponto de partida</i></button><span class="conector-trilha"></span><button
+                class="parada-trilha" data-panel-link="learning"><span
+                  class="numero-etapa">2</span><strong>Preparar</strong><small>Capacitação e cursos</small><i
+                  id="routeStatus2">Próxima etapa</i></button><span class="conector-trilha"></span><button
+                class="parada-trilha" data-panel-link="tasks"><span
+                  class="numero-etapa">3</span><strong>Praticar</strong><small>Atividades e experiências</small><i
+                  id="routeStatus3">Em seguida</i></button><span class="conector-trilha"></span><button
+                class="parada-trilha" data-panel-link="resume"><span class="numero-etapa">4</span><strong>Se
+                  apresentar</strong><small>Currículo e perfil</small><i id="routeStatus4">Em seguida</i></button><span
+                class="conector-trilha"></span><button class="parada-trilha" data-panel-link="student-jobs"><span
+                  class="numero-etapa">5</span><strong>Chegar ao topo</strong><small>Vagas e entrevistas</small><i
+                  id="routeStatus5">Objetivo da jornada</i></button></div>
+            <div class="base-trilha"><span id="routeProgressText">0 de 5 etapas iniciadas</span>
+              <div class="progresso-trilha"><span id="routeProgressBar"></span></div><button
+                class="botao botao-principal" data-panel-link="career">Continuar trilha</button>
+            </div>
+          </section>
+          <div class="grade-indicadores">
+            <article><span>Etapas concluídas</span><b id="statSteps">0 de 4</b></article>
+            <article><span>Cursos concluídos</span><b id="statCourses">0</b></article>
+            <article><span>Certificados enviados</span><b id="statCertificates">0</b></article>
+          </div>
+          <div class="grade-conteudo">
+            <article class="cartao-conteudo">
+              <div class="cabecalho-cartao">
+                <h3>Próximos passos</h3><span class="etiqueta">Seu progresso</span>
+              </div>
+              <div id="nextSteps" class="lista-verificacao"></div>
+            </article>
+            <article class="cartao-conteudo">
+              <div class="cabecalho-cartao">
+                <h3>Recomendação para você</h3>
+              </div>
+              <div id="studentRecommendation"></div><button class="botao botao-contorno largura-total"
+                data-panel-link="career">Explorar orientação profissional</button>
+            </article>
+          </div>
+          <div class="cartao-conteudo">
+            <div class="cabecalho-cartao">
+              <h3>Oportunidades recentes</h3><button class="botao-texto" data-panel-link="student-jobs">Ver
+                todas</button>
+            </div>
+            <div id="studentRecentJobs" class="lista-compacta"></div>
+          </div>
+        </section>
+
+        <section class="painel-cartao" id="panel-career">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Orientação profissional</p>
+              <h1>Descubra caminhos possíveis.</h1>
+              <p>O questionário abaixo é uma orientação inicial baseada em interesses, não um diagnóstico nem uma
+                decisão definitiva.</p>
+            </div>
+          </div>
+          <div class="cartao-conteudo inicio-carreira" id="careerStart">
+            <h3>Você já tem uma área em mente?</h3>
+            <p>Escolha uma opção para personalizar as próximas informações.</p>
+            <div class="linha-botoes"><button class="botao botao-principal" id="careerUndecided">Ainda estou
+                descobrindo</button><button class="botao botao-contorno" id="careerDefined">Já tenho uma área</button>
+            </div>
+          </div>
+          <form class="cartao-conteudo pilha-formulario" id="careerQuiz" hidden>
+            <h3>Questionário de interesses</h3>
+            <p>Marque a opção que mais combina com você em cada pergunta.</p>
+            <div id="quizQuestions"></div>
+            <button class="botao botao-principal" type="submit">Ver minhas áreas sugeridas</button>
+          </form>
+          <form class="cartao-conteudo pilha-formulario" id="careerKnown" hidden>
+            <h3>Explore uma área específica</h3><label for="knownCareer">Área ou carreira de interesse</label><input
+              id="knownCareer" class="campo" placeholder="Ex.: tecnologia, administração, saúde" required>
+            <button class="botao botao-principal" type="submit">Explorar possibilidades</button>
+          </form>
+          <div id="careerResults" class="cartao-conteudo" hidden></div>
+          <div class="cartao-conteudo">
+            <div class="cabecalho-cartao">
+              <h3>Áreas para explorar</h3>
+            </div>
+            <div id="careerCatalog" class="grade-carreiras"></div>
+          </div>
+        </section>
+
+        <section class="painel-cartao" id="panel-learning">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Capacitação</p>
+              <h1>Aprenda algo novo.</h1>
+              <p>Conteúdos introdutórios e indicações de cursos gratuitos para desenvolver competências.</p>
+            </div>
+          </div>
+          <div id="courseGrid" class="grade-cursos"></div>
+          <div class="cartao-conteudo pilha-formulario">
+            <h3>Enviar certificado</h3>
+            <p>Depois de concluir um curso, registre o certificado no seu perfil. O protótipo guarda o nome do arquivo e
+              os dados informados neste navegador; o documento não é enviado a um servidor.</p>
+            <form id="certificateForm"><label for="certificateCourse">Curso concluído</label><select class="campo"
+                id="certificateCourse" required></select><label for="certificateFile">Arquivo do certificado (PDF ou
+                imagem)</label><input class="campo" id="certificateFile" type="file" accept=".pdf,.png,.jpg,.jpeg"
+                required><button class="botao botao-principal" type="submit">Registrar certificado</button></form>
+            <div id="certificateList" class="lista-compacta"></div>
+          </div>
+        </section>
+
+        <section class="painel-cartao" id="panel-resume">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Currículo</p>
+              <h1>Apresente suas habilidades.</h1>
+              <p>Preencha os dados e gere uma versão simples para revisar, imprimir ou salvar em PDF.</p>
+            </div>
+          </div>
+          <form id="resumeForm" class="cartao-conteudo grade-formulario">
+            <label>Nome para o currículo<input class="campo" name="fullName" required></label><label>E-mail de
+              contato<input class="campo" name="email" type="email" required></label>
+            <label>Cidade / região<input class="campo" name="location"
+                placeholder="Ex.: Campinas, SP"></label><label>Escolaridade<input class="campo" name="education"
+                placeholder="Ex.: 2º ano do ensino médio"></label>
+            <label>Área de interesse<input class="campo" name="interests"
+                placeholder="Ex.: administração, tecnologia"></label><label>Habilidades<input class="campo"
+                name="skills" placeholder="Separe por vírgulas"></label>
+            <label class="largo">Objetivo profissional<textarea class="campo" name="objective" rows="3"
+                placeholder="Uma breve apresentação profissional"></textarea></label>
+            <label class="largo">Cursos e certificados<textarea class="campo" name="courses" rows="3"
+                placeholder="Cursos concluídos, certificados e projetos"></textarea></label>
+            <div class="largo linha-botoes"><button class="botao botao-principal" type="submit">Atualizar
+                currículo</button><button class="botao botao-contorno" type="button" id="printResume">Imprimir / salvar
+                em PDF</button></div>
+          </form>
+          <div id="resumePreview" class="previa-curriculo"></div>
+        </section>
+
+        <section class="painel-cartao" id="panel-student-jobs">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Vagas</p>
+              <h1>Encontre uma oportunidade.</h1>
+              <p>Filtre as vagas cadastradas neste protótipo por localidade, área, habilidades ou empresa.</p>
+            </div>
+          </div>
+          <form id="jobFilter" class="cartao-conteudo grade-filtros">
+            <label>Localidade<input class="campo" name="location" placeholder="Cidade ou remoto"></label><label>Área de
+              interesse<input class="campo" name="area" placeholder="Ex.: tecnologia"></label><label>Habilidades
+              exigidas<input class="campo" name="skills" placeholder="Ex.: comunicação"></label><label>Empresa
+              desejada<input class="campo" name="company" placeholder="Nome da empresa"></label>
+            <label class="largo">Certificados exigidos<input class="campo" name="certificate"
+                placeholder="Opcional"></label>
+            <div class="largo linha-botoes"><button class="botao botao-principal" type="submit">Filtrar
+                oportunidades</button><button class="botao botao-contorno" type="reset">Limpar filtros</button></div>
+          </form>
+          <div id="jobResults" class="grade-vagas"></div>
+        </section>
+
+        <section class="painel-cartao" id="panel-tasks">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Microtarefas</p>
+              <h1>Atividades de curta duração.</h1>
+              <p>Esta área é demonstrativa. No projeto, tarefas remuneradas ficam restritas a pessoas com 18 anos ou
+                mais.</p>
+            </div>
+          </div>
+          <div id="taskAgeNotice" class="aviso" hidden></div>
+          <div id="taskStudentArea">
+            <div class="cartao-conteudo">
+              <h3>Dados de recebimento</h3>
+              <p>Por segurança, este protótipo não solicita nem armazena dados bancários reais. Uma versão de produção
+                exigiria provedor de pagamentos e controles de segurança apropriados.</p>
+              <p class="suave">Cadastro de recebimento: não disponível nesta demonstração.</p>
+            </div>
+            <div id="taskList" class="grade-tarefas"></div>
+          </div>
+        </section>
+
+        <section class="painel-cartao" id="panel-ranking">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Reconhecimento</p>
+              <h1>Seu progresso conta.</h1>
+              <p>Uma proposta de ranking por participação em cursos e atividades concluídas, com ligas e possíveis
+                recompensas educativas.</p>
+            </div>
+          </div>
+          <div class="cartao-conteudo cartao-liga">
+            <p class="sobretitulo">Sua liga demonstrativa</p>
+            <h2 id="leagueName">Bronze</h2>
+            <p id="leagueDescription">Conclua cursos e atividades para acumular pontos de demonstração.</p>
+            <div class="trilho-progresso"><span id="leagueProgress"></span></div>
+            <p id="pointsText">0 pontos</p>
+          </div>
+          <div class="cartao-conteudo">
+            <h3>Como poderia funcionar</h3>
+            <p>Os pontos representam participação no protótipo. Vouchers, visitas a empresas e outras recompensas são
+              ideias para uma etapa futura; não há prêmios reais disponíveis nesta versão.</p>
+          </div>
+          <div class="cartao-conteudo">
+            <div class="cabecalho-cartao">
+              <h3>Ranking local</h3><span class="etiqueta">Dados demonstrativos</span>
+            </div>
+            <div id="rankingList" class="ranking-list"></div>
+          </div>
+        </section>
+
+        <section class="painel-cartao" id="panel-profile">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Conta</p>
+              <h1>Seu perfil.</h1>
+              <p>Revise os dados básicos usados para personalizar a experiência.</p>
+            </div>
+          </div>
+          <form id="studentProfileForm" class="cartao-conteudo pilha-formulario"><label>Nome<input class="campo"
+                name="name" required></label><label>E-mail<input class="campo" name="email" type="email"
+                required></label><label>Idade<input class="campo" name="age" type="number" min="14" max="20"
+                required></label><label>Escolaridade<select class="campo" name="education" required>
+                <option value="">Selecione</option>
+                <option>Ensino médio — 1º ano</option>
+                <option>Ensino médio — 2º ano</option>
+                <option>Ensino médio — 3º ano</option>
+                <option>Ensino técnico integrado</option>
+                <option>Ensino médio concluído</option>
+              </select></label><button class="botao botao-principal" type="submit">Salvar perfil</button></form>
+        </section>
+      </div>
+    </section>
+
+    <section class="tela estrutura painel" id="view-company">
+      <aside class="navegacao-lateral">
+        <button class="botao-menu-area" type="button" aria-expanded="false" aria-controls="companyMenuLinks"><span
+            class="linhas-menu" aria-hidden="true"><i></i><i></i><i></i></span> Minha área</button>
+        <div class="links-menu-area" id="companyMenuLinks">
+          <p class="sobretitulo">Área da empresa</p>
+          <h2 id="companyGreeting">Painel da empresa</h2>
+          <button class="link-lateral ativo" data-panel="company-overview">Visão geral</button>
+          <button class="link-lateral" data-panel="company-vacancies">Vagas de emprego</button>
+          <button class="link-lateral" data-panel="company-tasks">Microtarefas</button>
+          <button class="link-lateral" data-panel="company-candidates">Candidatos compatíveis</button>
+          <button class="link-lateral" data-panel="company-plan">Planos e divulgação</button>
+          <button class="link-lateral" data-panel="company-profile">Perfil da empresa</button>
+        </div>
+      </aside>
+      <div class="conteudo-painel">
+        <section class="painel-cartao ativo" id="panel-company-overview">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Painel da empresa</p>
+              <h1>Divulgue e encontre talentos.</h1>
+              <p>Publique oportunidades, acompanhe inscrições e consulte perfis demonstrativos compatíveis.</p>
+            </div><button class="botao botao-principal" data-panel-link="company-vacancies">Publicar vaga</button>
+          </div>
+          <div class="grade-indicadores">
+            <article><span>Vagas publicadas</span><b id="companyStatJobs">0</b></article>
+            <article><span>Inscrições recebidas</span><b id="companyStatApps">0</b></article>
+            <article><span>Microtarefas abertas</span><b id="companyStatTasks">0</b></article>
+          </div>
+          <div class="cartao-conteudo">
+            <div class="cabecalho-cartao">
+              <h3>Suas oportunidades</h3><button class="botao-texto" data-panel-link="company-vacancies">Gerenciar
+                vagas</button>
+            </div>
+            <div id="companyRecentJobs" class="lista-compacta"></div>
+          </div>
+          <div class="cartao-conteudo">
+            <h3>Como funciona</h3>
+            <p>Cadastre uma vaga e descreva os requisitos. A plataforma compara critérios com os perfis que existem no
+              protótipo e organiza os candidatos por compatibilidade. Nenhuma contratação é automática.</p>
+          </div>
+        </section>
+        <section class="painel-cartao" id="panel-company-vacancies">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Publicação</p>
+              <h1>Gerencie suas vagas.</h1>
+              <p>Cadastre oportunidades de Jovem Aprendiz e vagas de início de carreira.</p>
+            </div>
+          </div>
+          <form id="vacancyForm" class="cartao-conteudo grade-formulario">
+            <label class="largo">Título da vaga<input class="campo" name="title" required
+                placeholder="Ex.: Jovem Aprendiz — Administrativo"></label>
+            <label>Área<input class="campo" name="area" required
+                placeholder="Ex.: administração"></label><label>Localidade<input class="campo" name="location" required
+                placeholder="Cidade, estado ou remoto"></label>
+            <label>Modalidade<select class="campo" name="workMode">
+                <option>Presencial</option>
+                <option>Híbrido</option>
+                <option>Remoto</option>
+              </select></label><label>Tipo de oportunidade<select class="campo" name="type">
+                <option>Jovem Aprendiz</option>
+                <option>Estágio</option>
+                <option>Entrada no mercado</option>
+              </select></label>
+            <label class="largo">Habilidades desejadas<input class="campo" name="skills"
+                placeholder="Separe por vírgulas"></label><label class="largo">Certificados ou requisitos<input
+                class="campo" name="certificates" placeholder="Opcional"></label>
+            <label class="largo">Descrição<textarea class="campo" name="description" rows="3" required
+                placeholder="Responsabilidades e requisitos principais"></textarea></label>
+            <label>Faixa etária mínima<input class="campo" name="minAge" type="number" min="14" max="99"
+                value="14"></label><label>Faixa etária máxima<input class="campo" name="maxAge" type="number" min="14"
+                max="99" value="20"></label>
+            <div class="largo"><button class="botao botao-principal" type="submit">Publicar vaga</button></div>
+          </form>
+          <div class="cartao-conteudo">
+            <div class="cabecalho-cartao">
+              <h3>Vagas cadastradas</h3>
+            </div>
+            <div id="companyVacancyList" class="lista-compacta"></div>
+          </div>
+        </section>
+        <section class="painel-cartao" id="panel-company-tasks">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Atividades</p>
+              <h1>Publique microtarefas.</h1>
+              <p>Esta funcionalidade é um protótipo e deve ser revisada juridicamente antes de uso real.</p>
+            </div>
+          </div>
+          <form id="taskForm" class="cartao-conteudo grade-formulario">
+            <label class="largo">Título da tarefa<input class="campo" name="title" required
+                placeholder="Ex.: Organizar uma planilha de demonstração"></label><label>Categoria<input class="campo"
+                name="area" required placeholder="Ex.: dados"></label><label>Prazo em dias<input class="campo"
+                name="deadline" type="number" min="1" max="90" value="7" required></label>
+            <label>Valor demonstrativo (R$)<input class="campo" name="payment" type="number" min="0" step="0.01"
+                required placeholder="0,00"></label><label>Certificado obrigatório<input class="campo"
+                name="certificate" placeholder="Nenhum, se não houver"></label>
+            <label class="largo">Descrição e entrega esperada<textarea class="campo" name="description" rows="3"
+                required></textarea></label>
+            <div class="largo"><button class="botao botao-principal" type="submit">Publicar microtarefa</button></div>
+          </form>
+          <div class="cartao-conteudo">
+            <h3>Microtarefas publicadas</h3>
+            <div id="companyTaskList" class="lista-compacta"></div>
+          </div>
+        </section>
+        <section class="painel-cartao" id="panel-company-candidates">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Seleção</p>
+              <h1>Perfis por compatibilidade.</h1>
+              <p>Veja candidatos demonstrativos e compare requisitos. Os perfis de exemplo não representam pessoas
+                reais.</p>
+            </div>
+          </div>
+          <div class="cartao-conteudo">
+            <h3>Selecione uma vaga</h3><select class="campo" id="candidateVacancySelect"></select>
+            <div id="candidateResults" class="lista-candidatos"></div>
+          </div>
+          <div class="cartao-conteudo">
+            <h3>Modelo de acesso</h3>
+            <p>A navegação e uma prévia limitada de perfis são gratuitas no conceito freemium. O acesso a uma base
+              ampliada e serviços de divulgação aparecem como opções de plano, sem cobrança real implementada.</p>
+            <button class="botao botao-contorno" data-panel-link="company-plan">Ver planos demonstrativos</button>
+          </div>
+        </section>
+        <section class="painel-cartao" id="panel-company-plan">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Modelo freemium</p>
+              <h1>Escolha como divulgar.</h1>
+              <p>Valores abaixo são apenas exemplos para discutir o modelo comercial; não há pagamentos habilitados.</p>
+            </div>
+          </div>
+          <div class="grade-planos">
+            <article class="cartao-plano">
+              <p class="sobretitulo">Gratuito</p>
+              <h2>R$ 0</h2>
+              <p>Para conhecer a plataforma.</p>
+              <ul>
+                <li>Publicação de vagas no protótipo</li>
+                <li>Prévia limitada de perfis fictícios</li>
+                <li>Filtros básicos</li>
+              </ul><span class="etiqueta">Plano demonstrativo</span>
+            </article>
+            <article class="cartao-plano destaque">
+              <p class="sobretitulo">Seleção ampliada</p>
+              <h2>R$ 99 <small>/ exemplo</small></h2>
+              <p>Para explorar uma base maior.</p>
+              <ul>
+                <li>Lista ampliada de perfis compatíveis</li>
+                <li>Organização por requisitos</li>
+                <li>Relatório demonstrativo de compatibilidade</li>
+              </ul><span class="etiqueta">Preço ilustrativo</span>
+            </article>
+            <article class="cartao-plano">
+              <p class="sobretitulo">Divulgação</p>
+              <h2>Personalizado</h2>
+              <p>Para ampliar o alcance da vaga.</p>
+              <ul>
+                <li>Divulgação em canais parceiros, se formalizados</li>
+                <li>Publicações e campanhas</li>
+                <li>Acompanhamento de resultados</li>
+              </ul><span class="etiqueta">Serviço futuro</span>
+            </article>
+          </div>
+          <div class="cartao-conteudo">
+            <h3>Importante sobre a proposta</h3>
+            <p>A divulgação em escolas, redes sociais e instituições depende de parcerias reais e autorização. O
+              protótipo não afirma ter essas parcerias. Antes de vender acesso a currículos, será necessário definir
+              consentimento, privacidade, critérios de seleção, retenção de dados e termos de serviço.</p>
+          </div>
+        </section>
+        <section class="painel-cartao" id="panel-company-profile">
+          <div class="titulo-painel">
+            <div>
+              <p class="sobretitulo">Conta empresarial</p>
+              <h1>Dados da empresa.</h1>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="rodape">
+    <div class="estrutura conteudo-rodape"><a class="marca" href="#inicio"><span
+          class="simbolo-marca">R</span><span>rota<strong>jovem</strong></span></a><small>Protótipo demonstrativo da
+        Rota Jovem.</small></div>
+  </footer>
+
+  <div class="fundo-janela" id="authModal" hidden>
+    <section class="janela" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="fechar-janela" id="closeModal" aria-label="Fechar">Fechar</button>
+      <a class="marca marca-janela" href="#inicio"><span
+          class="simbolo-marca">R</span><span>rota<strong>jovem</strong></span></a>
+      <p class="sobretitulo">Acesse a plataforma</p>
+      <h2 id="authTitle">Crie sua conta</h2>
+      <p id="authIntro" class="suave">Escolha seu perfil e preencha os dados.</p>
+      <div class="abas-acesso"><button class="aba-acesso ativo" data-auth-mode="register">Criar conta</button><button
+          class="aba-acesso" data-auth-mode="login">Entrar</button></div>
+      <form id="authForm" class="pilha-formulario">
+        <fieldset class="escolha-perfil">
+          <legend>Tipo de conta</legend><label><input type="radio" name="role" value="student" checked>
+            Estudante</label><label><input type="radio" name="role" value="company"> Empresa</label>
+        </fieldset>
+        <div id="authNameWrap"><label for="authName">Nome completo / empresa</label><input class="campo" id="authName"
+            name="name" required></div>
+        <div id="authStudentFields"><label for="authCpf">CPF</label><input class="campo" id="authCpf" name="cpf"
+            inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"><label
+            for="authAge">Idade (14 a 20 anos)</label><input class="campo" id="authAge" name="age" type="number"
+            min="14" max="20"><label for="authEducation">Escolaridade</label><select class="campo" id="authEducation"
+            name="education">
+            <option value="">Selecione</option>
+            <option>Ensino médio — 1º ano</option>
+            <option>Ensino médio — 2º ano</option>
+            <option>Ensino médio — 3º ano</option>
+            <option>Ensino técnico integrado</option>
+            <option>Ensino médio concluído</option>
+          </select></div>
+        <div id="authCompanyFields" hidden><label for="authCnpj">CNPJ</label><input class="campo" id="authCnpj"
+            name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18"></div>
+        <label for="authEmail">E-mail</label><input class="campo" id="authEmail" name="email" type="email" required>
+        <label for="authPassword">Senha</label><input class="campo" id="authPassword" name="password" type="password"
+          minlength="6" required>
+        <button class="botao botao-principal botao-grande largura-total" id="authSubmit" type="submit">Criar conta
+          demonstrativa</button>
+        <p class="texto-miudo">Use somente dados fictícios. Esta demonstração guarda dados no navegador e não possui
+          segurança de autenticação de um serviço real.</p>
+      </form>
+    </section>
+  </div>
+  <div class="fundo-janela" id="jobInfoModal" hidden>
+    <section class="janela janela-detalhes-vaga" role="dialog" aria-modal="true" aria-labelledby="jobInfoTitle"><button
+        class="fechar-janela" id="closeJobInfo" aria-label="Fechar">Fechar</button>
+      <p class="sobretitulo" id="jobInfoCompany">Empresa</p>
+      <h2 id="jobInfoTitle">Detalhes da vaga</h2>
+      <div id="jobInfoBody"></div><button class="botao botao-principal botao-grande largura-total"
+        id="jobInfoInterest">Tenho interesse</button>
+    </section>
+  </div>
+  <div class="notificacao" id="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
