@@ -58,12 +58,12 @@ textarea:focus-visible {
     outline-offset: 2px
 }
 
-.estrutura {
+.shell {
     width: min(1160px, calc(100% - 40px));
     margin-inline: auto
 }
 
-.barra-superior {
+.topbar {
     height: 78px;
     width: min(1240px, calc(100% - 40px));
     margin: auto;
@@ -74,7 +74,7 @@ textarea:focus-visible {
     border-bottom: 1px solid #f0f1f5
 }
 
-.marca {
+.brand {
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -83,12 +83,12 @@ textarea:focus-visible {
     white-space: nowrap
 }
 
-.marca strong {
+.brand strong {
     color: var(--pink);
     font-weight: 800
 }
 
-.simbolo-marca {
+.brand-mark {
     display: grid;
     place-items: center;
     width: 34px;
@@ -98,27 +98,27 @@ textarea:focus-visible {
     color: white
 }
 
-.navegacao-principal {
+.main-nav {
     display: flex;
     gap: 25px
 }
 
-.navegacao-principal a {
+.main-nav a {
     font-size: .85rem;
     font-weight: 700;
     color: #626b7c
 }
 
-.navegacao-principal a:hover {
+.main-nav a:hover {
     color: var(--blue)
 }
 
-.acoes-superiores {
+.top-actions {
     display: flex;
     gap: 8px
 }
 
-.botao {
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -131,51 +131,51 @@ textarea:focus-visible {
     transition: transform .18s, background .18s, border-color .18s
 }
 
-.botao:hover {
+.btn:hover {
     transform: translateY(-1px)
 }
 
-.botao-principal {
+.btn-primary {
     background: var(--blue);
     color: #fff;
     box-shadow: 0 6px 15px #2457d61c
 }
 
-.botao-principal:hover {
+.btn-primary:hover {
     background: var(--blue-dark)
 }
 
-.botao-contorno {
+.btn-outline {
     border-color: #d8deea;
     background: #fff;
     color: var(--ink)
 }
 
-.botao-contorno:hover {
+.btn-outline:hover {
     border-color: var(--blue);
     color: var(--blue)
 }
 
-.botao-discreto {
+.btn-quiet {
     background: white;
     color: var(--ink)
 }
 
-.botao-escuro {
+.btn-dark {
     background: var(--ink);
     color: white
 }
 
-.botao-grande {
+.btn-lg {
     padding: 13px 19px;
     font-size: .9rem
 }
 
-.largura-total {
+.full {
     width: 100%
 }
 
-.menu-celular {
+.mobile-menu {
     display: none;
     border: 1px solid var(--line);
     background: white;
@@ -184,7 +184,7 @@ textarea:focus-visible {
     font-weight: 700
 }
 
-.destaque-inicial {
+.hero {
     display: grid;
     grid-template-columns: 1.05fr .95fr;
     align-items: center;
@@ -193,7 +193,7 @@ textarea:focus-visible {
     padding-bottom: 68px
 }
 
-.sobretitulo {
+.eyebrow {
     margin: 0 0 12px;
     color: var(--blue);
     font-size: .69rem;
@@ -202,41 +202,41 @@ textarea:focus-visible {
     font-weight: 800
 }
 
-.destaque-inicial h1,
-.titulo-painel h1 {
+.hero h1,
+.panel-heading h1 {
     font: 800 clamp(2.7rem, 4.7vw, 4.15rem)/1.1 Manrope, sans-serif;
     letter-spacing: -2px;
     margin: 0;
     max-width: 650px
 }
 
-.destaque-inicial h1 em,
-.titulo-secao h2 em {
+.hero h1 em,
+.section-heading h2 em {
     font-style: normal;
     color: var(--blue)
 }
 
-.texto-chamada {
+.lead {
     font-size: 1rem;
     color: var(--muted);
     max-width: 560px;
     margin: 20px 0 24px
 }
 
-.linha-botoes {
+.button-row {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap
 }
 
-.texto-auxiliar {
+.microcopy {
     margin: 19px 0 0;
     color: #858c9b;
     font-size: .75rem
 }
 
-.visual-inicial {
+.hero-visual {
     height: 370px;
     border-radius: 25px;
     background: linear-gradient(135deg, #f0f4ff, #fff1f6);
@@ -246,7 +246,7 @@ textarea:focus-visible {
     place-items: center
 }
 
-.disco-inicial {
+.hero-disc {
     position: absolute;
     width: 285px;
     height: 285px;
@@ -256,7 +256,7 @@ textarea:focus-visible {
     top: 35px
 }
 
-.cartao-inicial {
+.hero-card {
     position: relative;
     z-index: 1;
     width: min(300px, 78%);
@@ -268,26 +268,26 @@ textarea:focus-visible {
     transform: rotate(-2deg)
 }
 
-.rotulo-pequeno {
+.mini-label {
     font-size: .65rem;
     font-weight: 800;
     letter-spacing: 1.4px;
     color: var(--blue)
 }
 
-.linha-ilustracao {
+.visual-line {
     height: 7px;
     border-radius: 8px;
     background: #e9ecf3;
     margin-top: 13px
 }
 
-.linha-ilustracao.short {
+.visual-line.short {
     width: 60%;
     margin-bottom: 17px
 }
 
-.etapa-ilustrada {
+.visual-step {
     display: flex;
     align-items: center;
     gap: 11px;
@@ -295,7 +295,7 @@ textarea:focus-visible {
     padding: 12px 0
 }
 
-.etapa-ilustrada>span {
+.visual-step>span {
     display: grid;
     place-items: center;
     width: 34px;
@@ -307,26 +307,26 @@ textarea:focus-visible {
     color: var(--blue)
 }
 
-.etapa-ilustrada:nth-of-type(4)>span {
+.visual-step:nth-of-type(4)>span {
     background: #fff6ce;
     color: #876700
 }
 
-.etapa-ilustrada b,
-.etapa-ilustrada small {
+.visual-step b,
+.visual-step small {
     display: block
 }
 
-.etapa-ilustrada b {
+.visual-step b {
     font-size: .8rem
 }
 
-.etapa-ilustrada small {
+.visual-step small {
     font-size: .68rem;
     color: var(--muted)
 }
 
-.etiqueta-ilustrada {
+.visual-tag {
     position: absolute;
     z-index: 2;
     padding: 9px 14px;
@@ -337,21 +337,21 @@ textarea:focus-visible {
     box-shadow: 3px 3px 0 var(--ink)
 }
 
-.etiqueta-amarela {
+.tag-yellow {
     right: 8%;
     top: 58px;
     background: var(--yellow);
     transform: rotate(6deg)
 }
 
-.etiqueta-rosa {
+.tag-pink {
     left: 6%;
     bottom: 47px;
     background: var(--pink);
     transform: rotate(-6deg)
 }
 
-.faixa-destaques {
+.feature-strip {
     display: flex;
     justify-content: center;
     gap: clamp(22px, 6vw, 90px);
@@ -361,7 +361,7 @@ textarea:focus-visible {
     flex-wrap: wrap
 }
 
-.faixa-destaques div {
+.feature-strip div {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -369,7 +369,7 @@ textarea:focus-visible {
     font-weight: 700
 }
 
-.faixa-destaques b {
+.feature-strip b {
     font-size: .68rem;
     color: var(--blue);
     background: var(--blue-pale);
@@ -377,12 +377,12 @@ textarea:focus-visible {
     border-radius: 5px
 }
 
-.secao {
+.section {
     padding-top: 82px;
     padding-bottom: 82px
 }
 
-.titulo-secao {
+.section-heading {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -390,26 +390,26 @@ textarea:focus-visible {
     margin-bottom: 29px
 }
 
-.titulo-secao h2 {
+.section-heading h2 {
     font: 800 clamp(1.9rem, 3vw, 2.65rem)/1.17 Manrope, sans-serif;
     letter-spacing: -1px;
     margin: 0
 }
 
-.titulo-secao>p {
+.section-heading>p {
     max-width: 330px;
     margin: 0;
     color: var(--muted);
     font-size: .88rem
 }
 
-.grade-etapas {
+.steps-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px
 }
 
-.cartao-etapa {
+.step-card {
     border: 1px solid var(--line);
     border-radius: 14px;
     padding: 22px 19px;
@@ -418,7 +418,7 @@ textarea:focus-visible {
     overflow: hidden
 }
 
-.cartao-etapa:after {
+.step-card:after {
     content: "";
     height: 4px;
     position: absolute;
@@ -428,41 +428,41 @@ textarea:focus-visible {
     background: var(--blue)
 }
 
-.cartao-etapa:nth-child(2):after {
+.step-card:nth-child(2):after {
     background: var(--pink)
 }
 
-.cartao-etapa:nth-child(3):after {
+.step-card:nth-child(3):after {
     background: var(--yellow)
 }
 
-.cartao-etapa:nth-child(4):after {
+.step-card:nth-child(4):after {
     background: var(--blue)
 }
 
-.numero-etapa {
+.step-number {
     font-size: .7rem;
     font-weight: 800;
     color: var(--blue)
 }
 
-.cartao-etapa h3 {
+.step-card h3 {
     font: 800 1rem Manrope, sans-serif;
     margin: 22px 0 8px
 }
 
-.cartao-etapa p,
-.colunas-publico p:not(.sobretitulo) {
+.step-card p,
+.audience-columns p:not(.eyebrow) {
     font-size: .82rem;
     color: var(--muted);
     margin: 0
 }
 
-.faixa-publico {
+.audience-band {
     background: linear-gradient(110deg, #fff0f6 0 50%, #f0f4ff 50%)
 }
 
-.colunas-publico {
+.audience-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(35px, 7vw, 90px);
@@ -470,25 +470,25 @@ textarea:focus-visible {
     padding-bottom: 58px
 }
 
-.colunas-publico h2 {
+.audience-columns h2 {
     font: 800 clamp(1.65rem, 2.7vw, 2.3rem)/1.2 Manrope, sans-serif;
     letter-spacing: -.8px;
     margin: 0 0 14px;
     max-width: 480px
 }
 
-.colunas-publico article p:not(.sobretitulo) {
+.audience-columns article p:not(.eyebrow) {
     max-width: 470px;
     margin-bottom: 20px
 }
 
-.grade-vagas {
+.job-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px
 }
 
-.cartao-vaga {
+.job-card {
     border: 1px solid var(--line);
     border-radius: 14px;
     padding: 20px;
@@ -497,36 +497,36 @@ textarea:focus-visible {
     min-width: 0
 }
 
-.cartao-vaga:hover {
+.job-card:hover {
     box-shadow: 0 14px 35px #1e305a0d
 }
 
-.empresa-vaga {
+.job-company {
     font-size: .68rem;
     color: var(--muted);
     font-weight: 700;
     margin-bottom: 9px
 }
 
-.cartao-vaga h3 {
+.job-card h3 {
     font: 800 1rem/1.35 Manrope, sans-serif;
     margin: 0 0 7px
 }
 
-.metadados-vaga {
+.job-meta {
     font-size: .75rem;
     color: var(--muted);
     margin: 0 0 12px
 }
 
-.lista-etiquetas {
+.tag-list {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
     margin: 0 0 17px
 }
 
-.etiqueta {
+.tag {
     font-size: .65rem;
     background: var(--wash);
     padding: 5px 7px;
@@ -534,25 +534,25 @@ textarea:focus-visible {
     color: #525a6a
 }
 
-.cartao-vaga .botao {
+.job-card .btn {
     margin-top: auto
 }
 
-.aviso-legal,
-.suave {
+.disclaimer,
+.muted {
     color: #858c9b;
     font-size: .74rem
 }
 
-.aviso-legal {
+.disclaimer {
     margin-top: 15px
 }
 
-.rodape {
+.footer {
     border-top: 1px solid var(--line)
 }
 
-.conteudo-rodape {
+.footer-inner {
     padding: 24px 0;
     display: flex;
     align-items: center;
@@ -560,28 +560,28 @@ textarea:focus-visible {
     flex-wrap: wrap
 }
 
-.rodape p {
+.footer p {
     font-size: .78rem;
     color: var(--muted);
     margin: 0
 }
 
-.rodape small {
+.footer small {
     width: 100%;
     text-align: center;
     color: #858c9b;
     font-size: .69rem
 }
 
-.tela {
+.view {
     display: none
 }
 
-.tela.active {
+.view.active {
     display: block
 }
 
-.painel {
+.dashboard {
     display: grid;
     grid-template-columns: 230px minmax(0, 1fr);
     gap: 30px;
@@ -590,7 +590,7 @@ textarea:focus-visible {
     min-height: 65vh
 }
 
-.navegacao-lateral {
+.side-nav {
     align-self: start;
     position: sticky;
     top: 18px;
@@ -600,17 +600,17 @@ textarea:focus-visible {
     background: white
 }
 
-.navegacao-lateral h2 {
+.side-nav h2 {
     font: 800 1.1rem Manrope, sans-serif;
     margin: 0 8px 17px;
     overflow-wrap: anywhere
 }
 
-.navegacao-lateral .sobretitulo {
+.side-nav .eyebrow {
     margin-left: 8px
 }
 
-.link-lateral {
+.side-link {
     display: block;
     width: 100%;
     text-align: left;
@@ -624,25 +624,25 @@ textarea:focus-visible {
     margin: 2px 0
 }
 
-.link-lateral:hover,
-.link-lateral.active {
+.side-link:hover,
+.side-link.active {
     background: var(--blue-pale);
     color: var(--blue)
 }
 
-.conteudo-painel {
+.dashboard-main {
     min-width: 0
 }
 
-.painel-cartao {
+.panel {
     display: none
 }
 
-.painel-cartao.active {
+.panel.active {
     display: block
 }
 
-.titulo-painel {
+.panel-heading {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -650,53 +650,53 @@ textarea:focus-visible {
     margin-bottom: 23px
 }
 
-.titulo-painel h1 {
+.panel-heading h1 {
     font-size: clamp(1.9rem, 3.5vw, 2.65rem);
     letter-spacing: -1.1px
 }
 
-.titulo-painel p:not(.sobretitulo) {
+.panel-heading p:not(.eyebrow) {
     color: var(--muted);
     font-size: .86rem;
     margin: 10px 0 0;
     max-width: 650px
 }
 
-.grade-indicadores {
+.stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-bottom: 17px
 }
 
-.grade-indicadores article {
+.stats-grid article {
     padding: 17px;
     border: 1px solid var(--line);
     border-radius: 12px
 }
 
-.grade-indicadores span,
-.grade-indicadores b {
+.stats-grid span,
+.stats-grid b {
     display: block
 }
 
-.grade-indicadores span {
+.stats-grid span {
     font-size: .72rem;
     color: var(--muted)
 }
 
-.grade-indicadores b {
+.stats-grid b {
     font: 800 1.55rem Manrope, sans-serif;
     margin-top: 6px
 }
 
-.grade-conteudo {
+.content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px
 }
 
-.cartao-conteudo {
+.content-card {
     border: 1px solid var(--line);
     border-radius: 13px;
     padding: 20px;
@@ -704,17 +704,17 @@ textarea:focus-visible {
     min-width: 0
 }
 
-.cartao-conteudo h3 {
+.content-card h3 {
     font: 800 1rem Manrope, sans-serif;
     margin: 0 0 10px
 }
 
-.cartao-conteudo p {
+.content-card p {
     font-size: .83rem;
     color: var(--muted)
 }
 
-.cabecalho-cartao {
+.card-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -722,11 +722,11 @@ textarea:focus-visible {
     margin-bottom: 12px
 }
 
-.cabecalho-cartao h3 {
+.card-head h3 {
     margin: 0
 }
 
-.etiqueta {
+.pill {
     display: inline-flex;
     padding: 5px 8px;
     border-radius: 5px;
@@ -736,7 +736,7 @@ textarea:focus-visible {
     font-weight: 800
 }
 
-.botao-texto {
+.text-button {
     border: 0;
     background: transparent;
     color: var(--blue);
@@ -744,19 +744,19 @@ textarea:focus-visible {
     font-weight: 800
 }
 
-.lista-verificacao {
+.check-list {
     display: grid;
     gap: 11px
 }
 
-.item-verificacao {
+.check-item {
     display: flex;
     align-items: center;
     gap: 9px;
     font-size: .79rem
 }
 
-.marca-verificacao {
+.check-mark {
     width: 18px;
     height: 18px;
     border: 1px solid #cdd3df;
@@ -768,34 +768,34 @@ textarea:focus-visible {
     flex-shrink: 0
 }
 
-.marca-verificacao.done {
+.check-mark.done {
     background: #e8f6ee;
     border-color: #b8e2c9
 }
 
-.caixa-recomendacao {
+.recommendation-box {
     padding: 14px;
     border-radius: 10px;
     background: var(--blue-pale);
     margin-bottom: 13px
 }
 
-.caixa-recomendacao h4 {
+.recommendation-box h4 {
     margin: 0 0 6px;
     font-size: .88rem
 }
 
-.caixa-recomendacao p {
+.recommendation-box p {
     margin: 0;
     font-size: .78rem
 }
 
-.lista-compacta {
+.compact-list {
     display: grid;
     gap: 0
 }
 
-.linha-compacta {
+.compact-row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -804,29 +804,29 @@ textarea:focus-visible {
     border-bottom: 1px solid var(--line)
 }
 
-.linha-compacta:last-child {
+.compact-row:last-child {
     border-bottom: 0
 }
 
-.linha-compacta h4 {
+.compact-row h4 {
     font-size: .83rem;
     margin: 0 0 3px
 }
 
-.linha-compacta p {
+.compact-row p {
     font-size: .73rem;
     margin: 0;
     color: var(--muted)
 }
 
-.linha-compacta .acoes-linha {
+.compact-row .row-actions {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-end
 }
 
-.botao-pequeno {
+.small-btn {
     border: 1px solid var(--line);
     background: #fff;
     border-radius: 7px;
@@ -836,11 +836,11 @@ textarea:focus-visible {
     color: var(--blue)
 }
 
-.botao-pequeno.danger {
+.small-btn.danger {
     color: #b42335
 }
 
-.estado-vazio {
+.empty-state {
     padding: 17px;
     border-radius: 9px;
     background: var(--wash);
@@ -848,21 +848,21 @@ textarea:focus-visible {
     font-size: .8rem
 }
 
-.pilha-formulario {
+.form-stack {
     display: grid;
     gap: 9px
 }
 
-.pilha-formulario label,
-.grade-formulario label,
-.grade-filtros label {
+.form-stack label,
+.form-grid label,
+.filter-grid label {
     display: grid;
     gap: 6px;
     font-size: .76rem;
     font-weight: 800
 }
 
-.campo {
+.field {
     width: 100%;
     padding: 10px 11px;
     border: 1px solid #d7dce6;
@@ -873,86 +873,86 @@ textarea:focus-visible {
     outline: none
 }
 
-.campo:focus {
+.field:focus {
     border-color: var(--blue);
     box-shadow: 0 0 0 3px #2457d618
 }
 
-.campo::placeholder {
+.field::placeholder {
     color: #9ba1ae
 }
 
-.grade-formulario,
-.grade-filtros {
+.form-grid,
+.filter-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px
 }
 
-.grade-filtros {
+.filter-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr))
 }
 
-.largo {
+.wide {
     grid-column: 1/-1
 }
 
-.grade-formulario .linha-botoes {
+.form-grid .button-row {
     align-self: end
 }
 
-.inicio-carreira h3 {
+.career-start h3 {
     font-size: 1.1rem
 }
 
-.inicio-carreira p {
+.career-start p {
     margin: 0 0 17px
 }
 
-.inicio-carreira .linha-botoes {
+.career-start .button-row {
     margin-top: 15px
 }
 
-.grade-carreiras {
+.career-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px
 }
 
-.item-carreira {
+.career-item {
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 13px
 }
 
-.item-carreira h4 {
+.career-item h4 {
     margin: 0 0 6px;
     font-size: .84rem
 }
 
-.item-carreira p {
+.career-item p {
     font-size: .75rem;
     margin: 0 0 8px
 }
 
-.item-carreira small {
+.career-item small {
     font-size: .68rem;
     color: var(--blue);
     font-weight: 700
 }
 
-.pergunta-teste {
+.quiz-question {
     padding: 14px 0;
     border-bottom: 1px solid var(--line)
 }
 
-.pergunta-teste p {
+.quiz-question p {
     font-weight: 800;
     color: var(--ink);
     margin: 0 0 9px
 }
 
-.pergunta-teste label {
+.quiz-question label {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -961,14 +961,14 @@ textarea:focus-visible {
     font-size: .8rem
 }
 
-.grade-cursos {
+.course-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 15px
 }
 
-.cartao-curso {
+.course-card {
     border: 1px solid var(--line);
     border-radius: 13px;
     padding: 17px;
@@ -977,18 +977,18 @@ textarea:focus-visible {
     gap: 10px
 }
 
-.cartao-curso h3 {
+.course-card h3 {
     font: 800 .98rem Manrope, sans-serif;
     margin: 0
 }
 
-.cartao-curso p {
+.course-card p {
     font-size: .77rem;
     color: var(--muted);
     margin: 0
 }
 
-.cartao-curso .rodape-curso {
+.course-card .course-foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -996,78 +996,78 @@ textarea:focus-visible {
     margin-top: auto
 }
 
-.cartao-curso small {
+.course-card small {
     font-size: .68rem;
     color: var(--muted)
 }
 
-.cartao-curso a {
+.course-card a {
     font-size: .75rem;
     color: var(--blue);
     font-weight: 800
 }
 
-.cartao-curso .botao {
+.course-card .btn {
     align-self: flex-start
 }
 
-.entrada-certificado {
+.certificate-entry {
     font-size: .78rem;
     padding: 10px 0;
     border-bottom: 1px solid var(--line)
 }
 
-.entrada-certificado:last-child {
+.certificate-entry:last-child {
     border: 0
 }
 
-.previa-curriculo {
+.resume-preview {
     border: 1px solid var(--line);
     border-radius: 13px;
     padding: 25px;
     margin-top: 15px
 }
 
-.previa-curriculo h2 {
+.resume-preview h2 {
     font: 800 1.5rem Manrope, sans-serif;
     margin: 0 0 3px
 }
 
-.previa-curriculo h3 {
+.resume-preview h3 {
     font: 800 .85rem Manrope, sans-serif;
     margin: 17px 0 5px;
     color: var(--blue)
 }
 
-.previa-curriculo p {
+.resume-preview p {
     font-size: .8rem;
     margin: 4px 0;
     white-space: pre-wrap
 }
 
-.grade-tarefas {
+.task-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px
 }
 
-.cartao-tarefa {
+.task-card {
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 17px
 }
 
-.cartao-tarefa h3 {
+.task-card h3 {
     font-size: .95rem;
     margin: 0 0 7px
 }
 
-.cartao-tarefa p {
+.task-card p {
     font-size: .77rem;
     color: var(--muted)
 }
 
-.aviso {
+.notice {
     border: 1px solid #f0d98c;
     background: #fff9df;
     border-radius: 10px;
@@ -1076,16 +1076,16 @@ textarea:focus-visible {
     font-size: .82rem
 }
 
-.cartao-liga {
+.league-card {
     background: linear-gradient(110deg, #fff6ce, #fff)
 }
 
-.cartao-liga h2 {
+.league-card h2 {
     font: 800 2rem Manrope, sans-serif;
     margin: 0
 }
 
-.trilho-progresso {
+.progress-track {
     height: 8px;
     border-radius: 8px;
     background: #e7e8ec;
@@ -1093,7 +1093,7 @@ textarea:focus-visible {
     margin: 16px 0 7px
 }
 
-.trilho-progresso span {
+.progress-track span {
     display: block;
     height: 100%;
     width: 0;
@@ -1101,7 +1101,7 @@ textarea:focus-visible {
     transition: width .2s
 }
 
-.linha-ranking {
+.ranking-row {
     display: grid;
     grid-template-columns: 36px 1fr auto;
     align-items: center;
@@ -1110,67 +1110,67 @@ textarea:focus-visible {
     border-bottom: 1px solid var(--line)
 }
 
-.linha-ranking:last-child {
+.ranking-row:last-child {
     border: 0
 }
 
-.numero-ranking {
+.rank-number {
     font: 800 .85rem Manrope;
     color: var(--blue)
 }
 
-.linha-ranking strong,
-.linha-ranking small {
+.ranking-row strong,
+.ranking-row small {
     display: block
 }
 
-.linha-ranking strong {
+.ranking-row strong {
     font-size: .8rem
 }
 
-.linha-ranking small {
+.ranking-row small {
     font-size: .69rem;
     color: var(--muted)
 }
 
-.linha-ranking b {
+.ranking-row b {
     font-size: .78rem
 }
 
-.grade-planos {
+.plan-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 15px
 }
 
-.cartao-plano {
+.plan-card {
     border: 1px solid var(--line);
     border-radius: 13px;
     padding: 18px
 }
 
-.cartao-plano.featured {
+.plan-card.featured {
     border: 2px solid var(--blue);
     background: #f9faff
 }
 
-.cartao-plano h2 {
+.plan-card h2 {
     font: 800 1.8rem Manrope, sans-serif;
     margin: 8px 0
 }
 
-.cartao-plano h2 small {
+.plan-card h2 small {
     font-size: .65rem;
     color: var(--muted)
 }
 
-.cartao-plano p:not(.sobretitulo) {
+.plan-card p:not(.eyebrow) {
     font-size: .76rem;
     color: var(--muted)
 }
 
-.cartao-plano ul {
+.plan-card ul {
     padding-left: 17px;
     font-size: .76rem;
     display: grid;
@@ -1178,48 +1178,48 @@ textarea:focus-visible {
     margin: 18px 0
 }
 
-.cartao-plano .etiqueta {
+.plan-card .pill {
     margin-top: 5px
 }
 
-.lista-candidatos {
+.candidate-list {
     margin-top: 15px
 }
 
-.cartao-candidato {
+.candidate-card {
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 14px;
     margin-top: 10px
 }
 
-.topo-candidato {
+.candidate-top {
     display: flex;
     justify-content: space-between;
     gap: 12px
 }
 
-.cartao-candidato h4 {
+.candidate-card h4 {
     margin: 0 0 4px;
     font-size: .85rem
 }
 
-.cartao-candidato p {
+.candidate-card p {
     font-size: .73rem;
     margin: 3px 0
 }
 
-.pontuacao-compatibilidade {
+.match-score {
     font-weight: 800;
     color: var(--blue);
     font-size: .8rem
 }
 
-.cartao-candidato .botao-pequeno {
+.candidate-card .small-btn {
     margin-top: 8px
 }
 
-.escolha-perfil {
+.role-choice {
     border: 1px solid var(--line);
     border-radius: 8px;
     padding: 9px;
@@ -1228,20 +1228,20 @@ textarea:focus-visible {
     flex-wrap: wrap
 }
 
-.escolha-perfil legend {
+.role-choice legend {
     font-size: .75rem;
     font-weight: 800;
     padding: 0 4px
 }
 
-.escolha-perfil label {
+.role-choice label {
     display: flex;
     align-items: center;
     gap: 6px;
     font-size: .8rem
 }
 
-.fundo-janela {
+.modal-backdrop {
     position: fixed;
     inset: 0;
     z-index: 80;
@@ -1251,11 +1251,11 @@ textarea:focus-visible {
     padding: 18px
 }
 
-.fundo-janela[hidden] {
+.modal-backdrop[hidden] {
     display: none !important
 }
 
-.janela {
+.modal {
     position: relative;
     background: white;
     border-radius: 17px;
@@ -1266,7 +1266,7 @@ textarea:focus-visible {
     box-shadow: 0 24px 80px #0003
 }
 
-.fechar-janela {
+.modal-close {
     float: right;
     border: 0;
     background: var(--wash);
@@ -1276,20 +1276,20 @@ textarea:focus-visible {
     font-weight: 800
 }
 
-.marca-janela {
+.modal-brand {
     margin-bottom: 18px
 }
 
-.janela h2 {
+.modal h2 {
     font: 800 1.7rem Manrope, sans-serif;
     margin: 0
 }
 
-.janela .suave {
+.modal .muted {
     margin: 5px 0 15px
 }
 
-.abas-acesso {
+.auth-tabs {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: var(--wash);
@@ -1298,7 +1298,7 @@ textarea:focus-visible {
     margin: 15px 0
 }
 
-.aba-acesso {
+.auth-tab {
     border: 0;
     background: transparent;
     border-radius: 6px;
@@ -1308,20 +1308,20 @@ textarea:focus-visible {
     color: var(--muted)
 }
 
-.aba-acesso.active {
+.auth-tab.active {
     background: white;
     color: var(--blue);
     box-shadow: 0 2px 7px #0000000c
 }
 
-.texto-miudo {
+.fine-print {
     font-size: .68rem;
     color: #858c9b;
     text-align: center;
     line-height: 1.45
 }
 
-.notificacao {
+.toast {
     position: fixed;
     z-index: 100;
     bottom: 20px;
@@ -1339,60 +1339,60 @@ textarea:focus-visible {
     box-shadow: 0 8px 30px #0002
 }
 
-.notificacao.show {
+.toast.show {
     opacity: 1;
     transform: translate(-50%, 0)
 }
 
 @media(max-width:1000px) {
-    .destaque-inicial {
+    .hero {
         gap: 25px
     }
 
-    .grade-etapas {
+    .steps-grid {
         grid-template-columns: repeat(2, 1fr)
     }
 
-    .painel {
+    .dashboard {
         grid-template-columns: 195px minmax(0, 1fr);
         gap: 18px
     }
 
-    .grade-filtros {
+    .filter-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr))
     }
 
-    .grade-planos {
+    .plan-grid {
         grid-template-columns: 1fr
     }
 
-    .cartao-plano {
+    .plan-card {
         padding: 16px
     }
 
-    .grade-vagas {
+    .job-grid {
         grid-template-columns: repeat(2, 1fr)
     }
 }
 
 @media(max-width:740px) {
 
-    .estrutura,
-    .barra-superior {
+    .shell,
+    .topbar {
         width: calc(100% - 30px)
     }
 
-    .barra-superior {
+    .topbar {
         height: 70px;
         gap: 10px
     }
 
-    .menu-celular {
+    .mobile-menu {
         display: block;
         margin-left: auto
     }
 
-    .navegacao-principal {
+    .main-nav {
         display: none;
         position: absolute;
         z-index: 30;
@@ -1408,260 +1408,260 @@ textarea:focus-visible {
         gap: 4px
     }
 
-    .navegacao-principal.open {
+    .main-nav.open {
         display: flex
     }
 
-    .navegacao-principal a {
+    .main-nav a {
         padding: 9px
     }
 
-    .acoes-superiores {
+    .top-actions {
         gap: 3px
     }
 
-    .acoes-superiores .botao {
+    .top-actions .btn {
         padding: 8px 10px;
         font-size: .72rem
     }
 
-    .marca {
+    .brand {
         font-size: 1rem;
         gap: 6px
     }
 
-    .simbolo-marca {
+    .brand-mark {
         width: 30px;
         height: 30px
     }
 
-    .destaque-inicial {
+    .hero {
         grid-template-columns: 1fr;
         padding-top: 42px;
         padding-bottom: 45px;
         gap: 26px
     }
 
-    .destaque-inicial h1 {
+    .hero h1 {
         font-size: clamp(2.55rem, 9vw, 3.6rem)
     }
 
-    .visual-inicial {
+    .hero-visual {
         height: 315px
     }
 
-    .disco-inicial {
+    .hero-disc {
         width: 240px;
         height: 240px
     }
 
-    .faixa-destaques {
+    .feature-strip {
         justify-content: flex-start;
         gap: 12px 22px
     }
 
-    .faixa-destaques div {
+    .feature-strip div {
         font-size: .73rem
     }
 
-    .secao {
+    .section {
         padding-top: 58px;
         padding-bottom: 58px
     }
 
-    .titulo-secao {
+    .section-heading {
         display: block
     }
 
-    .titulo-secao>p {
+    .section-heading>p {
         margin-top: 12px
     }
 
-    .titulo-secao>.botao {
+    .section-heading>.btn {
         margin-top: 14px
     }
 
-    .faixa-publico {
+    .audience-band {
         background: linear-gradient(180deg, #fff0f6 0 50%, #f0f4ff 50%)
     }
 
-    .colunas-publico {
+    .audience-columns {
         grid-template-columns: 1fr;
         gap: 30px;
         padding-top: 40px;
         padding-bottom: 40px
     }
 
-    .painel {
+    .dashboard {
         display: block;
         padding-top: 20px
     }
 
-    .navegacao-lateral {
+    .side-nav {
         position: static;
         margin-bottom: 20px;
         padding: 13px
     }
 
-    .navegacao-lateral h2 {
+    .side-nav h2 {
         margin-bottom: 10px
     }
 
-    .navegacao-lateral .sobretitulo {
+    .side-nav .eyebrow {
         margin-bottom: 5px
     }
 
-    .link-lateral {
+    .side-link {
         display: inline-block;
         width: auto;
         margin: 2px;
         padding: 8px 10px
     }
 
-    .titulo-painel {
+    .panel-heading {
         display: block
     }
 
-    .titulo-painel>.botao {
+    .panel-heading>.btn {
         margin-top: 15px
     }
 
-    .grade-indicadores {
+    .stats-grid {
         gap: 8px
     }
 
-    .grade-indicadores article {
+    .stats-grid article {
         padding: 12px
     }
 
-    .grade-indicadores span {
+    .stats-grid span {
         font-size: .65rem
     }
 
-    .grade-indicadores b {
+    .stats-grid b {
         font-size: 1.25rem
     }
 
-    .grade-conteudo {
+    .content-grid {
         grid-template-columns: 1fr
     }
 
-    .cartao-conteudo {
+    .content-card {
         padding: 16px
     }
 
-    .grade-vagas,
-    .grade-cursos,
-    .grade-tarefas {
+    .job-grid,
+    .course-grid,
+    .task-grid {
         grid-template-columns: 1fr
     }
 
-    .grade-carreiras {
+    .career-grid {
         grid-template-columns: 1fr
     }
 
-    .grade-planos {
+    .plan-grid {
         grid-template-columns: 1fr
     }
 
-    .conteudo-rodape {
+    .footer-inner {
         justify-content: center;
         text-align: center
     }
 
-    .conteudo-rodape p {
+    .footer-inner p {
         width: 100%
     }
 
-    .rodape small {
+    .footer small {
         margin-top: 5px
     }
 
-    .titulo-painel h1 {
+    .panel-heading h1 {
         font-size: 2rem
     }
 }
 
 @media(max-width:440px) {
-    .acoes-superiores .botao-discreto {
+    .top-actions .btn-quiet {
         display: none
     }
 
-    .destaque-inicial .linha-botoes {
+    .hero .button-row {
         align-items: stretch;
         flex-direction: column
     }
 
-    .destaque-inicial .linha-botoes .botao {
+    .hero .button-row .btn {
         width: 100%
     }
 
-    .grade-etapas {
+    .steps-grid {
         grid-template-columns: 1fr
     }
 
-    .cartao-etapa {
+    .step-card {
         min-height: 0
     }
 
-    .cartao-etapa h3 {
+    .step-card h3 {
         margin-top: 12px
     }
 
-    .grade-formulario,
-    .grade-filtros {
+    .form-grid,
+    .filter-grid {
         grid-template-columns: 1fr
     }
 
-    .largo {
+    .wide {
         grid-column: auto
     }
 
-    .grade-indicadores {
+    .stats-grid {
         grid-template-columns: 1fr
     }
 
-    .grade-indicadores article {
+    .stats-grid article {
         display: flex;
         align-items: center;
         justify-content: space-between
     }
 
-    .grade-indicadores b {
+    .stats-grid b {
         margin: 0
     }
 
-    .faixa-destaques {
+    .feature-strip {
         display: grid;
         grid-template-columns: 1fr
     }
 
-    .janela {
+    .modal {
         padding: 20px 16px
     }
 
-    .linha-compacta {
+    .compact-row {
         gap: 8px
     }
 
-    .linha-compacta .acoes-linha {
+    .compact-row .row-actions {
         flex-direction: column
     }
 
-    .escolha-perfil {
+    .role-choice {
         gap: 8px
     }
 }
 
 @media print {
 
-    .barra-superior,
-    .rodape,
-    .navegacao-lateral,
-    .titulo-painel,
-    .botao,
-    .botao-texto,
-    .notificacao {
+    .topbar,
+    .footer,
+    .side-nav,
+    .panel-heading,
+    .btn,
+    .text-button,
+    .toast {
         display: none !important
     }
 
@@ -1669,7 +1669,7 @@ textarea:focus-visible {
         background: #fff
     }
 
-    .tela {
+    .view {
         display: none !important
     }
 
@@ -1683,27 +1683,27 @@ textarea:focus-visible {
         display: block !important
     }
 
-    .painel {
+    .dashboard {
         display: block;
         padding: 0
     }
 
-    .conteudo-painel {
+    .dashboard-main {
         width: 100%
     }
 
-    .previa-curriculo {
+    .resume-preview {
         border: 0;
         padding: 0
     }
 
-    .previa-curriculo h2 {
+    .resume-preview h2 {
         font-size: 24px
     }
 }
 
 /* Jornada visual inspirada na trilha da montanha da identidade Rota Jovem */
-.botao-menu-area {
+.area-menu-toggle {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1719,22 +1719,22 @@ textarea:focus-visible {
     margin-bottom: 10px
 }
 
-.links-menu-area {
+.area-menu-links {
     display: grid;
     gap: 3px
 }
 
-.links-menu-area .sobretitulo {
+.area-menu-links .eyebrow {
     margin-top: 5px
 }
 
-.trilha-montanha {
+.mountain-route {
     overflow: hidden;
     position: relative;
     background: linear-gradient(145deg, #f5f9ff 0%, #fff 62%, #fff8d7 100%)
 }
 
-.introducao-trilha {
+.route-intro {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1742,19 +1742,19 @@ textarea:focus-visible {
     margin-bottom: 20px
 }
 
-.introducao-trilha h2 {
+.route-intro h2 {
     font: 800 1.35rem Manrope, sans-serif;
     margin: 0 0 5px
 }
 
-.introducao-trilha p:not(.sobretitulo) {
+.route-intro p:not(.eyebrow) {
     font-size: .8rem;
     color: var(--muted);
     margin: 0;
     max-width: 470px
 }
 
-.marcador-trilha {
+.route-mark {
     display: grid;
     place-content: center;
     flex: 0 0 58px;
@@ -1770,7 +1770,7 @@ textarea:focus-visible {
     transform: rotate(8deg)
 }
 
-.caminho-trilha {
+.route-path {
     display: flex;
     align-items: stretch;
     gap: 6px;
@@ -1778,7 +1778,7 @@ textarea:focus-visible {
     position: relative
 }
 
-.parada-trilha {
+.route-stop {
     position: relative;
     display: flex;
     flex: 1;
@@ -1795,13 +1795,13 @@ textarea:focus-visible {
     transition: transform .18s, border-color .18s, box-shadow .18s
 }
 
-.parada-trilha:hover {
+.route-stop:hover {
     transform: translateY(-3px);
     border-color: var(--blue);
     box-shadow: 0 8px 20px #183e9410
 }
 
-.numero-etapa {
+.route-number {
     display: grid;
     place-items: center;
     width: 30px;
@@ -1813,28 +1813,28 @@ textarea:focus-visible {
     font-size: .8rem
 }
 
-.parada-trilha:nth-of-type(3n+1) .numero-etapa {
+.route-stop:nth-of-type(3n+1) .route-number {
     background: #fff2ad;
     color: #725900
 }
 
-.parada-trilha:nth-of-type(5) .numero-etapa {
+.route-stop:nth-of-type(5) .route-number {
     background: #ffe0f0;
     color: #b90065
 }
 
-.parada-trilha strong {
+.route-stop strong {
     font-size: .78rem;
     color: var(--ink)
 }
 
-.parada-trilha small {
+.route-stop small {
     font-size: .65rem;
     color: var(--muted);
     line-height: 1.35
 }
 
-.parada-trilha i {
+.route-stop i {
     font-style: normal;
     font-size: .62rem;
     font-weight: 800;
@@ -1843,11 +1843,11 @@ textarea:focus-visible {
     padding-top: 5px
 }
 
-.parada-trilha i.route-complete {
+.route-stop i.route-complete {
     color: #16734b
 }
 
-.conector-trilha {
+.route-connector {
     align-self: center;
     flex: 0 0 10px;
     height: 3px;
@@ -1855,7 +1855,7 @@ textarea:focus-visible {
     border-radius: 4px
 }
 
-.base-trilha {
+.route-bottom {
     display: grid;
     grid-template-columns: auto minmax(60px, 1fr) auto;
     align-items: center;
@@ -1864,20 +1864,20 @@ textarea:focus-visible {
     border-top: 1px solid #e4eaf5
 }
 
-.base-trilha>span {
+.route-bottom>span {
     font-size: .72rem;
     font-weight: 800;
     color: var(--muted)
 }
 
-.progresso-trilha {
+.route-progress {
     height: 7px;
     background: #e2e8f5;
     border-radius: 8px;
     overflow: hidden
 }
 
-.progresso-trilha span {
+.route-progress span {
     display: block;
     width: 0;
     height: 100%;
@@ -1886,29 +1886,29 @@ textarea:focus-visible {
 }
 
 @media(min-width:741px) {
-    .botao-menu-area {
+    .area-menu-toggle {
         display: none
     }
 
-    .links-menu-area {
+    .area-menu-links {
         display: grid !important
     }
 }
 
 @media(max-width:740px) {
-    .navegacao-lateral {
+    .side-nav {
         padding: 12px
     }
 
-    .links-menu-area {
+    .area-menu-links {
         display: none
     }
 
-    .links-menu-area.menu-open {
+    .area-menu-links.menu-open {
         display: grid
     }
 
-    .links-menu-area .link-lateral {
+    .area-menu-links .side-link {
         display: block;
         width: 100%;
         text-align: left;
@@ -1916,13 +1916,13 @@ textarea:focus-visible {
         padding: 10px 12px
     }
 
-    .caminho-trilha {
+    .route-path {
         display: grid;
         grid-template-columns: 1fr;
         gap: 7px
     }
 
-    .parada-trilha {
+    .route-stop {
         display: grid;
         grid-template-columns: 34px 1fr;
         column-gap: 10px;
@@ -1930,21 +1930,21 @@ textarea:focus-visible {
         padding: 10px 12px
     }
 
-    .numero-etapa {
+    .route-number {
         grid-row: span 3
     }
 
-    .parada-trilha strong,
-    .parada-trilha small,
-    .parada-trilha i {
+    .route-stop strong,
+    .route-stop small,
+    .route-stop i {
         grid-column: 2
     }
 
-    .parada-trilha i {
+    .route-stop i {
         padding-top: 0
     }
 
-    .conector-trilha {
+    .route-connector {
         justify-self: start;
         margin-left: 25px;
         width: 3px;
@@ -1952,40 +1952,40 @@ textarea:focus-visible {
         flex: none
     }
 
-    .base-trilha {
+    .route-bottom {
         grid-template-columns: 1fr auto
     }
 
-    .progresso-trilha {
+    .route-progress {
         grid-column: 1/-1;
         grid-row: 2
     }
 
-    .base-trilha .botao {
+    .route-bottom .btn {
         grid-column: 2;
         grid-row: 1
     }
 
-    .introducao-trilha h2 {
+    .route-intro h2 {
         font-size: 1.15rem
     }
 }
 
 @media(max-width:440px) {
-    .base-trilha {
+    .route-bottom {
         gap: 8px
     }
 
-    .base-trilha>span {
+    .route-bottom>span {
         font-size: .67rem
     }
 
-    .base-trilha .botao {
+    .route-bottom .btn {
         padding: 9px 10px;
         font-size: .72rem
     }
 
-    .marcador-trilha {
+    .route-mark {
         width: 48px;
         height: 48px;
         flex-basis: 48px
@@ -1997,7 +1997,7 @@ textarea:focus-visible {
     display: none !important
 }
 
-.botao-menu-area {
+.area-menu-toggle {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -2011,14 +2011,14 @@ textarea:focus-visible {
     color: var(--ink)
 }
 
-.linhas-menu {
+.hamburger-lines {
     display: flex;
     flex-direction: column;
     gap: 4px;
     width: 18px
 }
 
-.linhas-menu i {
+.hamburger-lines i {
     display: block;
     height: 2px;
     width: 18px;
@@ -2026,20 +2026,20 @@ textarea:focus-visible {
     border-radius: 2px
 }
 
-.links-menu-area {
+.area-menu-links {
     display: none;
     padding-top: 14px
 }
 
-.links-menu-area.menu-open {
+.area-menu-links.menu-open {
     display: block
 }
 
-.navegacao-lateral {
+.side-nav {
     min-width: 0
 }
 
-.link-lateral {
+.side-link {
     display: block;
     width: 100%;
     text-align: left;
@@ -2052,91 +2052,91 @@ textarea:focus-visible {
     font-weight: 700
 }
 
-.link-lateral.active,
-.link-lateral:hover {
+.side-link.active,
+.side-link:hover {
     background: var(--blue-pale);
     color: var(--blue)
 }
 
-.acoes-vaga {
+.job-card-actions {
     display: grid;
     grid-template-columns: 1fr;
     gap: 8px;
     margin-top: auto
 }
 
-.janela-detalhes-vaga h2 {
+.job-info-modal h2 {
     font: 800 1.8rem/1.2 Manrope, sans-serif;
     letter-spacing: -.7px;
     margin: 0 0 18px
 }
 
-.janela-detalhes-vaga h3 {
+.job-info-modal h3 {
     font-size: .95rem;
     margin: 18px 0 5px
 }
 
-.janela-detalhes-vaga #jobInfoBody p {
+.job-info-modal #jobInfoBody p {
     color: var(--muted);
     font-size: .88rem
 }
 
-.janela-detalhes-vaga #jobInfoInterest {
+.job-info-modal #jobInfoInterest {
     margin-top: 18px
 }
 
 @media(min-width:741px) {
-    .links-menu-area.menu-open {
+    .area-menu-links.menu-open {
         display: block
     }
 
-    .navegacao-lateral {
+    .side-nav {
         align-self: start
     }
 }
 
 @media(max-width:740px) {
-    .navegacao-lateral {
+    .side-nav {
         padding: 10px
     }
 
-    .links-menu-area.menu-open {
+    .area-menu-links.menu-open {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4px
     }
 
-    .links-menu-area .sobretitulo,
-    .links-menu-area h2 {
+    .area-menu-links .eyebrow,
+    .area-menu-links h2 {
         grid-column: 1/-1
     }
 
-    .link-lateral {
+    .side-link {
         font-size: .78rem;
         padding: 9px 8px;
         margin: 0
     }
 
-    .janela-detalhes-vaga {
+    .job-info-modal {
         max-height: 85vh;
         overflow: auto
     }
 }
 
 /* Revisão: menu da área sempre funcional e depoimentos da página inicial */
-.botao-menu-area {
+.area-menu-toggle {
     display: flex !important;
 }
 
-.links-menu-area {
+.area-menu-links {
     display: none !important;
 }
 
-.links-menu-area.menu-open {
+.area-menu-links.menu-open {
     display: grid !important;
 }
 
-.links-menu-area .link-lateral {
+.area-menu-links .side-link {
     display: block;
     width: 100%;
     text-align: left;
@@ -2145,15 +2145,15 @@ textarea:focus-visible {
 }
 
 @media(min-width:741px) {
-    .painel {
+    .dashboard {
         grid-template-columns: minmax(190px, 230px) minmax(0, 1fr)
     }
 
-    .links-menu-area.menu-open {
+    .area-menu-links.menu-open {
         display: grid !important
     }
 
-    .navegacao-lateral {
+    .side-nav {
         align-self: start;
         position: sticky;
         top: 18px
@@ -2161,42 +2161,42 @@ textarea:focus-visible {
 }
 
 @media(max-width:740px) {
-    .links-menu-area.menu-open {
+    .area-menu-links.menu-open {
         grid-template-columns: 1fr 1fr;
         gap: 5px
     }
 
-    .links-menu-area .sobretitulo,
-    .links-menu-area h2 {
+    .area-menu-links .eyebrow,
+    .area-menu-links h2 {
         grid-column: 1/-1
     }
 }
 
-.avaliacoes {
+.testimonials {
     padding-top: 44px;
     padding-bottom: 70px;
     max-width: 900px
 }
 
-.titulo-avaliacoes {
+.testimonials-heading {
     text-align: center;
     margin: 0 auto 22px
 }
 
-.titulo-avaliacoes h2 {
+.testimonials-heading h2 {
     font: 800 clamp(1.7rem, 3vw, 2.4rem)/1.2 Manrope, sans-serif;
     letter-spacing: -.8px;
     max-width: 660px;
     margin: 8px auto 20px
 }
 
-.abas-avaliacoes {
+.testimonial-tabs {
     display: flex;
     justify-content: center;
     gap: 8px
 }
 
-.aba-avaliacao {
+.testimonial-tab {
     border: 1px solid var(--line);
     border-radius: 999px;
     background: white;
@@ -2206,20 +2206,20 @@ textarea:focus-visible {
     cursor: pointer
 }
 
-.aba-avaliacao.active {
+.testimonial-tab.active {
     background: var(--blue-pale);
     border-color: var(--blue);
     color: var(--blue)
 }
 
-.carrossel-avaliacoes {
+.testimonial-carousel {
     display: grid;
     grid-template-columns: 44px minmax(0, 1fr) 44px;
     gap: 12px;
     align-items: center
 }
 
-.cartao-avaliacao {
+.testimonial-card {
     min-height: 220px;
     border: 1px solid var(--line);
     border-radius: 18px;
@@ -2232,29 +2232,29 @@ textarea:focus-visible {
     justify-content: center
 }
 
-.estrelas-avaliacao {
+.testimonial-stars {
     color: #e5b600;
     font-size: 1.25rem;
     letter-spacing: 4px
 }
 
-.cartao-avaliacao blockquote {
+.testimonial-card blockquote {
     font: 700 clamp(1rem, 2vw, 1.25rem)/1.6 Manrope, sans-serif;
     max-width: 620px;
     margin: 18px auto
 }
 
-.autor-avaliacao {
+.testimonial-author {
     font-weight: 800;
     margin: 0 0 7px
 }
 
-.nota-avaliacao {
+.testimonial-note {
     color: var(--muted);
     font-size: .68rem
 }
 
-.seta-avaliacao {
+.testimonial-arrow {
     width: 42px;
     height: 42px;
     border: 1px solid var(--line);
@@ -2265,18 +2265,18 @@ textarea:focus-visible {
     cursor: pointer
 }
 
-.seta-avaliacao:hover {
+.testimonial-arrow:hover {
     background: var(--blue-pale)
 }
 
-.pontos-carrossel {
+.testimonial-dots {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin-top: 17px
 }
 
-.pontos-carrossel button {
+.testimonial-dots button {
     width: 8px;
     height: 8px;
     padding: 0;
@@ -2286,42 +2286,42 @@ textarea:focus-visible {
     cursor: pointer
 }
 
-.pontos-carrossel button.active {
+.testimonial-dots button.active {
     background: var(--blue);
     transform: scale(1.25)
 }
 
 @media(max-width:500px) {
-    .avaliacoes {
+    .testimonials {
         padding-top: 30px;
         padding-bottom: 45px
     }
 
-    .carrossel-avaliacoes {
+    .testimonial-carousel {
         grid-template-columns: 28px minmax(0, 1fr) 28px;
         gap: 5px
     }
 
-    .seta-avaliacao {
+    .testimonial-arrow {
         width: 28px;
         height: 34px;
         font-size: 1.35rem
     }
 
-    .cartao-avaliacao {
+    .testimonial-card {
         padding: 20px 13px;
         min-height: 245px
     }
 
-    .cartao-avaliacao blockquote {
+    .testimonial-card blockquote {
         font-size: .96rem
     }
 
-    .abas-avaliacoes {
+    .testimonial-tabs {
         gap: 5px
     }
 
-    .aba-avaliacao {
+    .testimonial-tab {
         padding: 8px 12px;
         font-size: .78rem
     }
