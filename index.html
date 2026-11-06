@@ -12,11 +12,10 @@
 
 <body>
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Rota Jovem, início"><span
-        class="brand-mark">R</span><span>rota<strong>jovem</strong></span></a>
+    <a class="brand" href="#inicio" aria-label="Rota Jovem, início"><span>rota<strong>jovem</strong></span></a>
     <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">Menu</button>
     <nav id="mainNav" class="main-nav">
-      <a href="#inicio" data-view="home" id="homeNavLink">Início</a>
+      <a href="#inicio" data-view="home" id="homeNavLink">Início</a><a href="#recursos">Recursos</a><a href="#como-funciona">Como funciona</a>
     </nav>
     <div class="top-actions" id="topActions">
       <button class="btn btn-quiet" data-action="open-login">Entrar</button>
@@ -26,63 +25,91 @@
 
   <main>
     <section class="view active" id="view-home">
-      <section class="hero shell" id="inicio">
+      <section class="hero hero-showcase shell" id="inicio">
         <div class="hero-copy">
-          <p class="eyebrow">Desenvolvimento, preparo e oportunidade</p>
-          <h1>Seu próximo passo profissional <em>começa aqui.</em></h1>
-          <p class="lead">Descubra seu caminho, desenvolva suas habilidades e encontre oportunidades para começar.</p>
+          <p class="eyebrow"><span class="eyebrow-dot"></span> O futuro começa com uma oportunidade</p>
+          <h1>Seu talento merece <em>um caminho.</em></h1>
+          <p class="lead">Aprenda, descubra suas possibilidades e chegue mais perto do mundo do trabalho. A Rota Jovem conecta desenvolvimento e oportunidades em um só lugar.</p>
           <div class="button-row">
-            <button class="btn btn-primary btn-lg" data-action="open-register" data-role="student">Sou
-              estudante</button>
+            <button class="btn btn-primary btn-lg" data-action="open-register" data-role="student">Quero começar <span aria-hidden="true">↗</span></button>
             <button class="btn btn-outline btn-lg" data-action="open-register" data-role="company">Sou empresa</button>
           </div>
-
+          <p class="microcopy">Uma plataforma para dar os primeiros passos — e para abrir portas.</p>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-disc"></div>
-          <div class="hero-card">
-            <span class="mini-label">SUA ROTA</span>
-            <div class="visual-line"></div>
-            <div class="visual-line short"></div>
-            <div class="visual-step"><span>01</span>
-              <div><b>Descobrir</b><small>Interesses e caminhos</small></div>
-            </div>
-            <div class="visual-step"><span>02</span>
-              <div><b>Desenvolver</b><small>Prepare seus próximos passos</small></div>
-            </div>
-            <div class="visual-step"><span>03</span>
-              <div><b>Conectar</b><small>Novas oportunidades</small></div>
-            </div>
-          </div>
-          <div class="visual-tag tag-yellow">Aprender</div>
-          <div class="visual-tag tag-pink">Avançar</div>
+        <div class="showcase-art mountain-showcase" role="img" aria-label="Ilustração minimalista de uma montanha com uma bandeira no topo, representando novas oportunidades">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-sun"></div>
+          <div class="mountain-label mountain-label-top">NOVOS CAMINHOS <span>↗</span></div>
+          <svg class="mountain-scene" viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 376 171 190l62 73 104-166 196 279H28Z" fill="#cbd7ff"/>
+            <path d="m171 190 31 37-31-5-29 33 29-65Zm166-93 35 48-38-15-25 30 28-63Z" fill="#fff" opacity=".92"/>
+            <path d="M88 377 244 164l52 69 55-83 143 227H88Z" fill="#7892ed"/>
+            <path d="m244 164 52 69-46-17-26 33 20-85Zm107-14 42 59-42-18-23 25 23-66Z" fill="#eef2ff"/>
+            <path d="m120 377 151-146 42 43 75-101 112 204H120Z" fill="#3458c9"/>
+            <path d="m271 231 42 43-45-11-24 22 27-54Zm117-58 25 39-31-12-20 22 26-49Z" fill="#a9b9ff"/>
+            <path d="M48 378h472" stroke="#263d91" stroke-width="8" stroke-linecap="round"/>
+            <path d="M393 177V89" stroke="#283d91" stroke-width="6" stroke-linecap="round"/><path d="M395 91q43-22 76 0-34 28-76 12Z" fill="#f17eb2"/>
+          </svg>
+          <div class="mountain-caption"><span class="caption-mark">✦</span><div><b>Cada passo conta.</b><small>Aprenda · Explore · Conquiste</small></div></div>
         </div>
       </section>
-      <section class="testimonials shell" aria-labelledby="testimonialsTitle">
-        <div class="testimonials-heading">
-          <p class="eyebrow">Histórias que inspiram</p>
-          <h2 id="testimonialsTitle">Novos caminhos começam com uma oportunidade.</h2>
-          <div class="testimonial-tabs" role="tablist" aria-label="Tipo de depoimento"><button type="button"
-              class="testimonial-tab active" data-testimonial-type="student" role="tab"
-              aria-selected="true">Estudantes</button><button type="button" class="testimonial-tab"
-              data-testimonial-type="company" role="tab" aria-selected="false">Empresas</button></div>
+
+      <section class="home-proof">
+        <div class="shell proof-inner"><div><strong>01</strong><span>Descubra seus interesses</span></div><div><strong>02</strong><span>Desenvolva habilidades</span></div><div><strong>03</strong><span>Conecte-se a oportunidades</span></div></div>
+      </section>
+
+      <section class="home-highlights shell" id="recursos" aria-label="O que você encontra na Rota Jovem">
+        <div class="section-heading centered">
+          <p class="eyebrow">Muito além de encontrar uma vaga</p>
+          <h2>Ferramentas para transformar <em>potencial em movimento.</em></h2>
+          <p>Uma jornada completa para se preparar, experimentar e construir novas possibilidades.</p>
         </div>
-        <div class="testimonial-carousel" aria-live="polite"><button class="testimonial-arrow" type="button"
-            id="testimonialPrev" aria-label="Depoimento anterior">‹</button>
+        <div class="highlight-grid">
+          <article class="highlight-card highlight-blue"><span class="highlight-icon">⌕</span><span class="card-index">01 / DESCOBRIR</span><h3>Encontre sua direção</h3><p>Explore áreas profissionais, entenda seus interesses e descubra caminhos que combinam com você.</p><span class="highlight-arrow">↗</span></article>
+          <article class="highlight-card highlight-yellow"><span class="highlight-icon">✳</span><span class="card-index">02 / DESENVOLVER</span><h3>Aprenda no seu ritmo</h3><p>Acesse cursos, conteúdos, orientação profissional e recursos para fortalecer suas habilidades.</p><span class="highlight-arrow">↗</span></article>
+          <article class="highlight-card highlight-pink"><span class="highlight-icon">◎</span><span class="card-index">03 / CONECTAR</span><h3>Chegue a novas oportunidades</h3><p>Conheça vagas, experiências e empresas que podem fazer parte do início da sua trajetória.</p><span class="highlight-arrow">↗</span></article>
+        </div>
+      </section>
+
+      <section class="home-audience">
+        <div class="shell audience-showcase">
+          <div class="audience-intro"><p class="eyebrow">Duas jornadas. Um mesmo propósito.</p><h2>Oportunidade boa é aquela que <em>faz todo mundo crescer.</em></h2><p>A Rota Jovem aproxima quem está construindo o futuro profissional de quem pode abrir portas para ele.</p></div>
+          <article class="audience-card student-audience"><div class="audience-symbol">✳</div><p class="eyebrow">PARA ESTUDANTES</p><h3>Seu começo pode ir mais longe.</h3><p>Organize sua jornada, desenvolva competências, prepare seu currículo e explore oportunidades.</p><button class="text-link" data-action="open-register" data-role="student">Conhecer a área do estudante <span>↗</span></button></article>
+          <article class="audience-card company-audience"><div class="audience-symbol">↗</div><p class="eyebrow">PARA EMPRESAS</p><h3>Descubra novos talentos.</h3><p>Divulgue oportunidades, publique experiências e encontre jovens com vontade de aprender e crescer.</p><button class="text-link" data-action="open-register" data-role="company">Conhecer a área da empresa <span>↗</span></button></article>
+        </div>
+      </section>
+
+      <section class="home-how shell" id="como-funciona"><div class="how-copy"><p class="eyebrow">Simples assim</p><h2>Uma rota com espaço para <em>o seu próximo passo.</em></h2><p>Comece criando seu acesso. Depois, explore os recursos que fazem sentido para sua jornada.</p><button class="btn btn-primary btn-lg" data-action="open-register">Fazer parte da Rota Jovem <span>↗</span></button></div>
+        <div class="how-steps"><article><b>01</b><div><h3>Crie sua conta</h3><p>Escolha seu perfil e faça seu cadastro.</p></div><span>✦</span></article><article><b>02</b><div><h3>Explore as possibilidades</h3><p>Conheça os recursos disponíveis para sua jornada.</p></div><span>⌕</span></article><article><b>03</b><div><h3>Dê o próximo passo</h3><p>Aprenda, conecte-se e transforme planos em ação.</p></div><span>↗</span></article></div>
+      </section>
+
+      <section class="testimonials shell" aria-label="Avaliações da Rota Jovem">
+        <div class="testimonials-heading">
+          <p class="eyebrow">Gente que acredita em novas possibilidades</p>
+          <h2>Uma boa oportunidade pode mudar <em>o começo de uma história.</em></h2>
+          <p class="testimonial-intro">Veja como estudantes e empresas enxergam a proposta da Rota Jovem.</p>
+          <div class="testimonial-tabs" role="tablist" aria-label="Tipo de avaliação">
+            <button class="testimonial-tab active" type="button" data-testimonial-type="student" role="tab" aria-selected="true">Estudantes</button>
+            <button class="testimonial-tab" type="button" data-testimonial-type="company" role="tab" aria-selected="false">Empresas</button>
+          </div>
+        </div>
+        <div class="testimonial-carousel">
+          <button class="testimonial-arrow" id="testimonialPrev" type="button" aria-label="Avaliação anterior">‹</button>
           <article class="testimonial-card">
             <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-            <blockquote id="testimonialQuote">“A plataforma me ajudou a organizar os próximos passos e enxergar
-              possibilidades que eu ainda não conhecia.”</blockquote>
-            <p class="testimonial-author" id="testimonialAuthor">Estudante participante</p><small
-              class="testimonial-note">Exemplo ilustrativo de depoimento — não é uma avaliação real de cliente.</small>
-          </article><button class="testimonial-arrow" type="button" id="testimonialNext"
-            aria-label="Próximo depoimento">›</button>
+            <blockquote id="testimonialQuote">“A plataforma me ajudou a organizar os próximos passos e enxergar possibilidades que eu ainda não conhecia.”</blockquote>
+            <p class="testimonial-author" id="testimonialAuthor">Estudante participante</p>
+            <span class="testimonial-note">Depoimento ilustrativo do protótipo escolar</span>
+          </article>
+          <button class="testimonial-arrow" id="testimonialNext" type="button" aria-label="Próxima avaliação">›</button>
         </div>
-        <div class="testimonial-dots" id="testimonialDots" aria-label="Selecionar depoimento"><button class="active"
-            data-testimonial-index="0" aria-label="Depoimento 1"></button><button data-testimonial-index="1"
-            aria-label="Depoimento 2"></button><button data-testimonial-index="2" aria-label="Depoimento 3"></button>
+        <div class="testimonial-dots" aria-label="Selecionar avaliação">
+          <button class="active" type="button" data-testimonial-index="0" aria-label="Avaliação 1"></button>
+          <button type="button" data-testimonial-index="1" aria-label="Avaliação 2"></button>
+          <button type="button" data-testimonial-index="2" aria-label="Avaliação 3"></button>
         </div>
       </section>
+      <section class="home-final-cta"><div class="shell final-cta-inner"><div><p class="eyebrow">Seu futuro não precisa esperar</p><h2>Vamos descobrir até onde sua rota pode chegar?</h2><p>Crie sua conta e comece a explorar.</p></div><button class="btn btn-dark btn-lg" data-action="open-register">Começar agora <span>↗</span></button></div></section>
     </section>
 
     <section class="view shell dashboard" id="view-student">
@@ -534,49 +561,44 @@
   </main>
 
   <footer class="footer">
-    <div class="shell footer-inner"><a class="brand" href="#inicio"><span
-          class="brand-mark">R</span><span>rota<strong>jovem</strong></span></a><small>Protótipo demonstrativo da Rota
+    <div class="shell footer-inner"><a class="brand" href="#inicio"><span>rota<strong>jovem</strong></span></a><small>Protótipo demonstrativo da Rota
         Jovem.</small></div>
   </footer>
 
-  <div class="modal-backdrop" id="authModal" hidden>
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-      <button class="modal-close" id="closeModal" aria-label="Fechar">Fechar</button>
-      <a class="brand modal-brand" href="#inicio"><span
-          class="brand-mark">R</span><span>rota<strong>jovem</strong></span></a>
-      <p class="eyebrow">Acesse a plataforma</p>
-      <h2 id="authTitle">Crie sua conta</h2>
-      <p id="authIntro" class="muted">Escolha seu perfil e preencha os dados.</p>
-      <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="register">Criar conta</button><button
-          class="auth-tab" data-auth-mode="login">Entrar</button></div>
-      <form id="authForm" class="form-stack">
-        <fieldset class="role-choice">
-          <legend>Tipo de conta</legend><label><input type="radio" name="role" value="student" checked>
-            Estudante</label><label><input type="radio" name="role" value="company"> Empresa</label>
-        </fieldset>
-        <div id="authNameWrap"><label for="authName">Nome completo / empresa</label><input class="field" id="authName"
-            name="name" required></div>
-        <div id="authStudentFields"><label for="authCpf">CPF</label><input class="field" id="authCpf" name="cpf"
-            inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"><label
-            for="authAge">Idade (14 a 20 anos)</label><input class="field" id="authAge" name="age" type="number"
-            min="14" max="20"><label for="authEducation">Escolaridade</label><select class="field" id="authEducation"
-            name="education">
-            <option value="">Selecione</option>
-            <option>Ensino médio — 1º ano</option>
-            <option>Ensino médio — 2º ano</option>
-            <option>Ensino médio — 3º ano</option>
-            <option>Ensino técnico integrado</option>
-            <option>Ensino médio concluído</option>
-          </select></div>
-        <div id="authCompanyFields" hidden><label for="authCnpj">CNPJ</label><input class="field" id="authCnpj"
-            name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18"></div>
-        <label for="authEmail">E-mail</label><input class="field" id="authEmail" name="email" type="email" required>
-        <label for="authPassword">Senha</label><input class="field" id="authPassword" name="password" type="password"
-          minlength="6" required>
-        <button class="btn btn-primary btn-lg full" id="authSubmit" type="submit">Criar conta demonstrativa</button>
-        <p class="fine-print">Use somente dados fictícios. Esta demonstração guarda dados no navegador e não possui
-          segurança de autenticação de um serviço real.</p>
-      </form>
+  <div class="modal-backdrop auth-backdrop" id="authModal" hidden>
+    <section class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="auth-visual">
+        <button class="auth-visual-close" id="closeModal" type="button" aria-label="Fechar">×</button>
+        <div class="auth-visual-copy"><span class="auth-kicker">BEM-VINDO À ROTA JOVEM</span><h2>Seu próximo capítulo começa aqui.</h2><p>Conecte talentos, aprendizado e oportunidades em um só lugar.</p></div>
+        <div class="auth-illustration" aria-hidden="true">
+          <div class="auth-orbit auth-orbit-a"></div><div class="auth-orbit auth-orbit-b"></div>
+          <div class="auth-paper-plane">➤</div>
+          <div class="auth-phone"><span class="auth-avatar">●</span><i></i><i></i><b>SEU FUTURO</b></div>
+          <div class="auth-person auth-person-one"><span></span><i></i></div><div class="auth-person auth-person-two"><span></span><i></i></div>
+          <div class="auth-plant">✦</div>
+        </div>
+        <div class="auth-visual-foot"><span>✦</span> Descubra. Desenvolva. Conquiste.</div>
+      </div>
+      <div class="auth-content">
+        <button class="auth-content-close" type="button" id="closeModalMobile" aria-label="Fechar">×</button>
+        <a class="brand modal-brand" href="#inicio"><span>rota<strong>jovem</strong></span></a>
+        <p class="eyebrow">Acesse a plataforma</p>
+        <h2 id="authTitle">Crie sua conta</h2>
+        <p id="authIntro" class="muted">Escolha seu perfil e preencha os dados.</p>
+        <div class="auth-tabs"><button class="auth-tab active" type="button" data-auth-mode="register">Criar conta</button><button class="auth-tab" type="button" data-auth-mode="login">Entrar</button></div>
+        <form id="authForm" class="form-stack">
+          <fieldset class="role-choice">
+            <legend>Tipo de conta</legend><label><input type="radio" name="role" value="student" checked> Estudante</label><label><input type="radio" name="role" value="company"> Empresa</label>
+          </fieldset>
+          <div id="authNameWrap"><label for="authName">Nome completo / empresa</label><input class="field" id="authName" name="name" required></div>
+          <div id="authStudentFields"><label for="authCpf">CPF</label><input class="field" id="authCpf" name="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"><label for="authAge">Idade (14 a 20 anos)</label><input class="field" id="authAge" name="age" type="number" min="14" max="20"><label for="authEducation">Escolaridade</label><select class="field" id="authEducation" name="education"><option value="">Selecione</option><option>Ensino médio — 1º ano</option><option>Ensino médio — 2º ano</option><option>Ensino médio — 3º ano</option><option>Ensino técnico integrado</option><option>Ensino médio concluído</option></select></div>
+          <div id="authCompanyFields" hidden><label for="authCnpj">CNPJ</label><input class="field" id="authCnpj" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18"></div>
+          <label for="authEmail">E-mail</label><input class="field" id="authEmail" name="email" type="email" autocomplete="email" required>
+          <label for="authPassword">Senha</label><input class="field" id="authPassword" name="password" type="password" minlength="6" autocomplete="current-password" required>
+          <button class="btn btn-primary btn-lg full" id="authSubmit" type="submit">Criar conta demonstrativa</button>
+          <p class="fine-print">Use somente dados fictícios. Esta demonstração guarda dados no navegador e não possui segurança de autenticação de um serviço real.</p>
+        </form>
+      </div>
     </section>
   </div>
   <div class="modal-backdrop" id="jobInfoModal" hidden>

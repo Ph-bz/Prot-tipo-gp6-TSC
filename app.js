@@ -55,16 +55,24 @@ function roleOf() { return current()?.role || null }
 function setView(name) {
     const user = current();
 
-    // A página pública só é exibida para quem não está autenticado.
-    if (name === 'home' && user) name = user.role;
-
+    // A página inicial é sempre pública; o painel só abre por ação explícita.
     // Impede que uma conta acesse a interface do outro tipo de usuário.
-    if ((name === 'student' || name === 'company') && (!user || user.role !== name)) {
-        name = user ? user.role : 'home';
+    if (name === 'student' || name === 'company') {
+        if (!user) {
+            name = 'home';
+        } else if (user.role !== name) {
+            toast('Esta área não pertence ao tipo da sua conta. Você continua na página inicial.');
+            name = 'home';
+        }
     }
 
+    // Isolamento rígido das telas: apenas a view solicitada fica renderizada.
+    // O atributo hidden também impede que regras de layout/grid reexibam outra área.
     $$('.view').forEach(view => {
-        view.classList.toggle('active', view.id === `view-${name}`);
+        const isTarget = view.id === `view-${name}`;
+        view.classList.toggle('active', isTarget);
+        view.hidden = !isTarget;
+        view.setAttribute('aria-hidden', String(!isTarget));
     });
     $('#mainNav').classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -81,7 +89,7 @@ function setView(name) {
     document.body.dataset.currentView = name;
 }
 
-function showPanel(name) { const root = name.startsWith('company-') ? $('#view-company') : $('#view-student'); root.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name)); root.querySelectorAll('.side-link').forEach(b => b.classList.toggle('active', b.dataset.panel === name)); if (name === 'career') renderCareer(); if (name === 'learning') renderLearning(); if (name === 'resume') renderResume(); if (name === 'student-jobs') renderStudentJobs(); if (name === 'tasks') renderStudentTasks(); if (name === 'ranking') renderRanking(); if (name === 'profile') fillStudentProfile(); if (name === 'company-vacancies') renderCompanyJobs(); if (name === 'company-tasks') renderCompanyTasks(); if (name === 'company-candidates') renderCandidates(); if (name === 'company-plan') { } if (name === 'company-profile') fillCompanyProfile(); if (name === 'company-overview') renderCompany(); window.scrollTo({ top: 0, behavior: 'smooth' }) }
+function showPanel(name) { const user = current(); const requestedRole = name.startsWith('company-') ? 'company' : 'student'; if (!user || user.role !== requestedRole) { toast('Esta área não pertence ao tipo da sua conta.'); setView('home'); return; } const root = name.startsWith('company-') ? $('#view-company') : $('#view-student'); if (!root || root.hidden || !root.classList.contains('active')) { setView(user.role); return; } root.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name)); root.querySelectorAll('.side-link').forEach(b => b.classList.toggle('active', b.dataset.panel === name)); if (name === 'career') renderCareer(); if (name === 'learning') renderLearning(); if (name === 'resume') renderResume(); if (name === 'student-jobs') renderStudentJobs(); if (name === 'tasks') renderStudentTasks(); if (name === 'ranking') renderRanking(); if (name === 'profile') fillStudentProfile(); if (name === 'company-vacancies') renderCompanyJobs(); if (name === 'company-tasks') renderCompanyTasks(); if (name === 'company-candidates') renderCandidates(); if (name === 'company-plan') { } if (name === 'company-profile') fillCompanyProfile(); if (name === 'company-overview') renderCompany(); window.scrollTo({ top: 0, behavior: 'smooth' }) }
 
 function openAuth(mode = 'register', role = 'student') { authMode = mode; $('#authModal').hidden = false; document.body.style.overflow = 'hidden'; setAuthMode(mode); const radio = $(`input[name="role"][value="${role}"]`); if (radio) radio.checked = true; updateAuthFields() }
 
@@ -91,7 +99,8 @@ function setAuthMode(mode) { authMode = mode; $$('[data-auth-mode]').forEach(b =
 
 function updateAuthFields() { const role = $('input[name="role"]:checked')?.value || 'student', reg = authMode === 'register'; $('#authStudentFields').hidden = role !== 'student' || !reg; $('#authCompanyFields').hidden = role !== 'company' || !reg; $('#authAge').required = role === 'student' && reg; $('#authEducation').required = role === 'student' && reg; $('#authCpf').required = role === 'student' && reg; $('#authCnpj').required = role === 'company' && reg }
 
-function updateHeader() { const user = current(), actions = $('#topActions'), homeLink = $('#homeNavLink'); if (!user) { if (homeLink) { homeLink.textContent = 'Início'; homeLink.setAttribute('href', '#inicio'); homeLink.dataset.view = 'home' } actions.innerHTML = '<button class="btn btn-quiet" data-action="open-login">Entrar</button><button class="btn btn-primary" data-action="open-register">Criar conta</button>'; return } if (homeLink) { homeLink.textContent = 'Visão geral'; homeLink.setAttribute('href', '#visao-geral'); homeLink.dataset.view = user.role } actions.innerHTML = `<span class="user-chip">${esc(user.name)}</span><button class="btn btn-outline" data-action="dashboard">Minha área</button><button class="btn btn-quiet" data-action="logout">Sair</button>` }
+function updateHeader() { const user = current(), actions = $('#topActions'), homeLink = $('#homeNavLink'); if (homeLink) { homeLink.textContent = 'Início'; homeLink.setAttribute('href', '#inicio'); homeLink.dataset.view = 'home' } actions.innerHTML = user ? `<span class="user-chip">${esc(user.name)}</span><button class="btn btn-outline" data-action="dashboard">Minha área</button><button class="btn btn-quiet" data-action="logout">Sair</button>` : '<button class="btn btn-quiet" data-action="open-login">Entrar</button><button class="btn btn-primary" data-action="open-register">Criar conta</button>' }
+
 
 function allJobs() { return state.jobs || defaultJobs }
 
@@ -153,17 +162,17 @@ function deleteJob(id) { const u = current(); state.jobs = allJobs().filter(j =>
 
 function deleteTask(id) { const u = current(); state.tasks = allTasks().filter(t => !(t.id === id && t.owner === u.email)); save(); toast('Microtarefa removida.'); renderCompanyTasks(); renderCompany() }
 
-function handleClick(e) { const b = e.target.closest('button,a'); if (!b) return; if (b.classList.contains('area-menu-toggle')) { const box = b.nextElementSibling; const opened = box.classList.toggle('menu-open'); b.setAttribute('aria-expanded', String(opened)); return; } if (b.dataset.action === 'open-login') { openAuth('login', roleOf() || 'student'); return } if (b.dataset.action === 'open-register') { openAuth('register', b.dataset.role || 'student'); return } if (b.dataset.action === 'logout') { state.session = null; save(); updateHeader(); setView('home'); toast('Você saiu da demonstração.'); return } if (b.dataset.action === 'dashboard') { setView(roleOf() === 'company' ? 'company' : 'student'); return } if (b.dataset.viewLink) { setView(b.dataset.viewLink); return } if (b.dataset.panelLink) { const role = roleOf(); if (!role) { openAuth('login', 'student'); return } const panel = b.dataset.panelLink.startsWith('company-') ? b.dataset.panelLink : (role === 'company' ? 'company-' : '') + b.dataset.panelLink; setView(role); showPanel(panel); return } if (b.dataset.view) { let target = b.dataset.view; if (target === 'home' && current()) target = roleOf(); if (target === 'student' || target === 'company') { if (!current()) { openAuth('login', target); return } if (roleOf() !== target) { toast('Entre com uma conta do tipo ' + (target === 'student' ? 'estudante' : 'empresa') + '.'); return } } setView(target); return } if (b.classList.contains('brand')) { e.preventDefault(); if (current()) setView(roleOf()); else setView('home'); return } if (b.dataset.panel) { showPanel(b.dataset.panel); const menu = b.closest('.area-menu-links'); if (menu) { menu.classList.remove('menu-open'); menu.previousElementSibling?.setAttribute('aria-expanded', 'false') } return } if (b.dataset.jobInfo) { openJobInfo(b.dataset.jobInfo); return } if (b.id === 'closeJobInfo') { closeJobInfo(); return } if (b.id === 'jobInfoInterest') { const id = b.dataset.jobId; if (id) applyToJob(id); return } if (b.dataset.apply) { applyToJob(b.dataset.apply); return } if (b.dataset.course) { completeCourse(b.dataset.course); return } if (b.dataset.taskApply) { applyTask(b.dataset.taskApply); return } if (b.dataset.deleteJob) { deleteJob(b.dataset.deleteJob); return } if (b.dataset.deleteTask) { deleteTask(b.dataset.deleteTask); return } if (b.dataset.viewCandidates) { showPanel('company-candidates'); $('#candidateVacancySelect').value = b.dataset.viewCandidates; showCandidatesFor(b.dataset.viewCandidates); return } }
+function handleClick(e) { const b = e.target.closest('button,a'); if (!b) return; if (b.classList.contains('area-menu-toggle')) { const box = b.nextElementSibling; const opened = box.classList.toggle('menu-open'); b.setAttribute('aria-expanded', String(opened)); return; } if (b.dataset.action === 'open-login') { openAuth('login', roleOf() || 'student'); return } if (b.dataset.action === 'open-register') { openAuth('register', b.dataset.role || 'student'); return } if (b.dataset.action === 'logout') { state.session = null; save(); window.location.href = 'index.html'; return } if (b.dataset.action === 'dashboard') { window.location.href = roleOf() === 'company' ? 'empresa.html' : 'estudante.html'; return } if (b.dataset.viewLink) { setView(b.dataset.viewLink); return } if (b.dataset.panelLink) { const role = roleOf(); if (!role) { openAuth('login', 'student'); return } const panel = b.dataset.panelLink.startsWith('company-') ? b.dataset.panelLink : (role === 'company' ? 'company-' : '') + b.dataset.panelLink; setView(role); showPanel(panel); return } if (b.dataset.view) { let target = b.dataset.view; if (target === 'student' || target === 'company') { if (!current()) { openAuth('login', target); return } if (roleOf() !== target) { toast('Entre com uma conta do tipo ' + (target === 'student' ? 'estudante' : 'empresa') + '.'); return } } setView(target); return } if (b.classList.contains('brand')) { e.preventDefault(); setView('home'); return } if (b.dataset.panel) { showPanel(b.dataset.panel); const menu = b.closest('.area-menu-links'); if (menu) { menu.classList.remove('menu-open'); menu.previousElementSibling?.setAttribute('aria-expanded', 'false') } return } if (b.dataset.jobInfo) { openJobInfo(b.dataset.jobInfo); return } if (b.id === 'closeJobInfo') { closeJobInfo(); return } if (b.id === 'jobInfoInterest') { const id = b.dataset.jobId; if (id) applyToJob(id); return } if (b.dataset.apply) { applyToJob(b.dataset.apply); return } if (b.dataset.course) { completeCourse(b.dataset.course); return } if (b.dataset.taskApply) { applyTask(b.dataset.taskApply); return } if (b.dataset.deleteJob) { deleteJob(b.dataset.deleteJob); return } if (b.dataset.deleteTask) { deleteTask(b.dataset.deleteTask); return } if (b.dataset.viewCandidates) { showPanel('company-candidates'); $('#candidateVacancySelect').value = b.dataset.viewCandidates; showCandidatesFor(b.dataset.viewCandidates); return } }
 
 function openJobInfo(id) { const j = allJobs().find(x => x.id === id); if (!j) return; $('#jobInfoCompany').textContent = j.company; $('#jobInfoTitle').textContent = j.title; $('#jobInfoBody').innerHTML = `<p class="job-meta">${esc(j.location)} · ${esc(j.workMode || 'A definir')}</p><div class="tag-list"><span class="tag">${esc(j.type || 'Oportunidade')}</span><span class="tag">${esc(j.area)}</span></div><h3>Sobre a oportunidade</h3><p>${esc(j.description || 'Oportunidade de início de carreira.')}</p><h3>Habilidades desejadas</h3><p>${esc((j.skills || []).join(', ') || 'A definir pela empresa')}</p>${j.certificates ? `<h3>Certificados</h3><p>${esc(j.certificates)}</p>` : ''}<p class="fine-print">Empresa e vaga exibidas conforme o cadastro de demonstração.</p>`; const btn = $('#jobInfoInterest'); btn.dataset.jobId = id; const applied = state.applications.some(a => a.jobId === id && a.email === current()?.email); btn.textContent = applied ? 'Interesse registrado' : 'Tenho interesse'; btn.disabled = applied; $('#jobInfoModal').hidden = false; document.body.style.overflow = 'hidden' }
 function closeJobInfo() { $('#jobInfoModal').hidden = true; document.body.style.overflow = '' }
 const testimonialSets = { student: [{ quote: '“A plataforma me ajudou a organizar os próximos passos e enxergar possibilidades que eu ainda não conhecia.”', author: 'Estudante participante' }, { quote: '“Consegui visualizar melhor quais habilidades desenvolver antes de procurar minha primeira oportunidade.”', author: 'Estudante participante' }, { quote: '“Ter cursos e oportunidades organizados em um só lugar deixou minha busca mais clara.”', author: 'Estudante participante' }], company: [{ quote: '“Encontrar candidatos com interesses alinhados à vaga pode tornar o processo seletivo mais organizado.”', author: 'Equipe de recrutamento' }, { quote: '“Uma apresentação clara das habilidades dos jovens ajuda a entender melhor cada perfil.”', author: 'Empresa participante' }, { quote: '“A proposta facilita visualizar oportunidades de início de carreira e os requisitos de cada vaga.”', author: 'Equipe de pessoas' }] }; let testimonialType = 'student', testimonialIndex = 0;
-function renderTestimonial() { const list = testimonialSets[testimonialType], item = list[testimonialIndex]; $('#testimonialQuote').textContent = item.quote; $('#testimonialAuthor').textContent = item.author; $$('[data-testimonial-type]').forEach(b => { const active = b.dataset.testimonialType === testimonialType; b.classList.toggle('active', active); b.setAttribute('aria-selected', String(active)) }); $$('[data-testimonial-index]').forEach((b, i) => b.classList.toggle('active', i === testimonialIndex)); } $$('[data-testimonial-type]').forEach(b => b.addEventListener('click', () => { testimonialType = b.dataset.testimonialType; testimonialIndex = 0; renderTestimonial() })); $('#testimonialPrev')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex + 2) % 3; renderTestimonial() }); $('#testimonialNext')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex + 1) % 3; renderTestimonial() }); $$('[data-testimonial-index]').forEach(b => b.addEventListener('click', () => { testimonialIndex = Number(b.dataset.testimonialIndex); renderTestimonial() })); renderTestimonial();
+function renderTestimonial() { const quote = $('#testimonialQuote'), author = $('#testimonialAuthor'); if (!quote || !author) return; const list = testimonialSets[testimonialType], item = list[testimonialIndex]; quote.textContent = item.quote; author.textContent = item.author; $$('[data-testimonial-type]').forEach(b => { const active = b.dataset.testimonialType === testimonialType; b.classList.toggle('active', active); b.setAttribute('aria-selected', String(active)) }); $$('[data-testimonial-index]').forEach((b, i) => b.classList.toggle('active', i === testimonialIndex)); } $$('[data-testimonial-type]').forEach(b => b.addEventListener('click', () => { testimonialType = b.dataset.testimonialType; testimonialIndex = 0; renderTestimonial() })); $('#testimonialPrev')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex + 2) % 3; renderTestimonial() }); $('#testimonialNext')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex + 1) % 3; renderTestimonial() }); $$('[data-testimonial-index]').forEach(b => b.addEventListener('click', () => { testimonialIndex = Number(b.dataset.testimonialIndex); renderTestimonial() })); renderTestimonial();
 document.addEventListener('click', handleClick);
 $('#mobileMenu').addEventListener('click', () => $('#mainNav').classList.toggle('open'));
-$('#closeModal').addEventListener('click', closeAuth); $('#closeJobInfo').addEventListener('click', closeJobInfo); $('#jobInfoModal').addEventListener('click', e => { if (e.target === $('#jobInfoModal')) closeJobInfo() }); $('#authModal').addEventListener('click', e => { if (e.target === $('#authModal')) closeAuth() }); document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#authModal').hidden) closeAuth() });
+$('#closeModal').addEventListener('click', closeAuth); $('#closeModalMobile')?.addEventListener('click', closeAuth); $('#closeJobInfo').addEventListener('click', closeJobInfo); $('#jobInfoModal').addEventListener('click', e => { if (e.target === $('#jobInfoModal')) closeJobInfo() }); $('#authModal').addEventListener('click', e => { if (e.target === $('#authModal')) closeAuth() }); document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#authModal').hidden) closeAuth() });
 $$('[data-auth-mode]').forEach(b => b.addEventListener('click', () => setAuthMode(b.dataset.authMode))); $$('input[name="role"]').forEach(r => r.addEventListener('change', updateAuthFields));
-$('#authForm').addEventListener('submit', e => { e.preventDefault(); const f = e.currentTarget; if (!f.reportValidity()) return; const d = new FormData(f), email = String(d.get('email')).trim().toLowerCase(), password = String(d.get('password')), role = d.get('role'); if (authMode === 'register') { if (state.users.some(u => u.email === email)) { toast('Já existe uma conta com este e-mail neste navegador.'); return } const user = { id: uid('user'), name: String(d.get('name')).trim(), email, password, role, age: d.get('age') || '', education: d.get('education') || '', cpf: String(d.get('cpf') || '').replace(/\D/g, ''), cnpj: String(d.get('cnpj') || '').replace(/\D/g, ''), createdAt: new Date().toISOString() }; if (role === 'student' && user.cpf.length !== 11) { toast('Informe um CPF com 11 números.'); return } if (role === 'company' && user.cnpj.length !== 14) { toast('Informe um CNPJ com 14 números.'); return } if (role === 'student' && state.users.some(u => u.cpf && u.cpf === user.cpf)) { toast('Já existe uma conta com este CPF neste navegador.'); return } if (role === 'company' && state.users.some(u => u.cnpj && u.cnpj === user.cnpj)) { toast('Já existe uma conta com este CNPJ neste navegador.'); return } if (role === 'student' && (!user.age || +user.age < 14 || +user.age > 20)) { toast('A idade deve estar entre 14 e 20 anos.'); return } state.users.push(user); state.session = { email, role }; state.progress[email] = { courses: [], certificates: [], quizDone: false, resumeDone: false }; state.points[email] = 0; save(); closeAuth(); updateHeader(); setView(role); toast('Conta demonstrativa criada.'); f.reset(); setAuthMode('register'); return } const user = state.users.find(u => u.email === email && u.password === password); if (!user) { toast('Dados incorretos ou conta inexistente neste navegador.'); return } state.session = { email: user.email, role: user.role }; save(); closeAuth(); updateHeader(); setView(user.role); toast('Acesso demonstrativo iniciado.'); f.reset(); setAuthMode('register') });
+$('#authForm').addEventListener('submit', e => { e.preventDefault(); const f = e.currentTarget; if (!f.reportValidity()) return; const d = new FormData(f), email = String(d.get('email')).trim().toLowerCase(), password = String(d.get('password')), role = d.get('role'); if (authMode === 'register') { if (state.users.some(u => u.email === email)) { toast('Já existe uma conta com este e-mail neste navegador.'); return } const user = { id: uid('user'), name: String(d.get('name')).trim(), email, password, role, age: d.get('age') || '', education: d.get('education') || '', cpf: String(d.get('cpf') || '').replace(/\D/g, ''), cnpj: String(d.get('cnpj') || '').replace(/\D/g, ''), createdAt: new Date().toISOString() }; if (role === 'student' && user.cpf.length !== 11) { toast('Informe um CPF com 11 números.'); return } if (role === 'company' && user.cnpj.length !== 14) { toast('Informe um CNPJ com 14 números.'); return } if (role === 'student' && state.users.some(u => u.cpf && u.cpf === user.cpf)) { toast('Já existe uma conta com este CPF neste navegador.'); return } if (role === 'company' && state.users.some(u => u.cnpj && u.cnpj === user.cnpj)) { toast('Já existe uma conta com este CNPJ neste navegador.'); return } if (role === 'student' && (!user.age || +user.age < 14 || +user.age > 20)) { toast('A idade deve estar entre 14 e 20 anos.'); return } state.users.push(user); state.session = { email, role }; state.progress[email] = { courses: [], certificates: [], quizDone: false, resumeDone: false }; state.points[email] = 0; save(); closeAuth(); updateHeader(); window.location.href = role === 'company' ? 'empresa.html' : 'estudante.html'; toast('Conta criada!'); f.reset(); setAuthMode('register'); return } const user = state.users.find(u => u.email === email && u.password === password); if (!user) { toast('Dados incorretos ou conta inexistente neste navegador.'); return } if (user.role !== role) { toast('O tipo de conta selecionado não corresponde a este cadastro. Selecione ' + (user.role === 'student' ? 'Estudante' : 'Empresa') + '.'); return } state.session = { email: user.email, role: user.role }; save(); closeAuth(); updateHeader(); window.location.href = role === 'company' ? 'empresa.html' : 'estudante.html'; toast('Login realizado!'); f.reset(); setAuthMode('register') });
 $('#careerUndecided').addEventListener('click', () => { $('#careerStart').hidden = true; $('#careerQuiz').hidden = false; $('#careerKnown').hidden = true; $('#careerResults').hidden = true });
 $('#careerDefined').addEventListener('click', () => { $('#careerStart').hidden = true; $('#careerKnown').hidden = false; $('#careerQuiz').hidden = true; $('#careerResults').hidden = true });
 $('#careerQuiz').addEventListener('submit', e => { e.preventDefault(); const d = new FormData(e.currentTarget), scores = { tech: 0, business: 0, creative: 0, care: 0, education: 0, engineering: 0 }; for (let i = 0; i < 3; i++)scores[d.get('q' + i)] = (scores[d.get('q' + i)] || 0) + 1; const map = { tech: 'Tecnologia e dados', business: 'Administração e negócios', creative: 'Comunicação e criação', care: 'Saúde e bem-estar', education: 'Educação e sociedade', engineering: 'Engenharia e meio ambiente' }; const areas = Object.entries(scores).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k]) => map[k]); const u = current(); const result = { title: areas[0], areas, summary: 'Estas áreas combinam com algumas respostas que você marcou. Use o resultado como ponto de partida para pesquisar atividades, cursos e requisitos de formação.' }; state.careerResults[u.email] = result; state.progress[u.email].quizDone = true; save(); showCareerResult(result); renderStudent(); toast('Orientação registrada no seu perfil.') });
@@ -184,14 +193,60 @@ function init() {
     updateHeader();
     renderPublicJobs();
 
-    // Ao recarregar a página, uma sessão ativa vai direto para seu painel.
-    if (state.session && current()) {
-        setView(roleOf());
-    } else {
-        state.session = null;
-        save();
-        setView('home');
-    }
+    // Mantém a sessão válida, mas começa sempre na vitrine pública.
+    if (state.session && !current()) { state.session = null; save(); }
+    if (state.session && current() && state.session.role !== current().role) { state.session.role = current().role; save(); }
+    // Ao carregar/recarregar, nenhuma área privada pode permanecer visível.
+    $$('.view').forEach(view => { view.hidden = view.id !== 'view-home'; view.classList.toggle('active', view.id === 'view-home'); view.setAttribute('aria-hidden', String(view.id !== 'view-home')); });
+    const accountPage = document.body.dataset.accountPage;
+    if (accountPage) { if (!current() || roleOf() !== accountPage) { window.location.replace('index.html'); return; } setView(accountPage); } else { setView('home'); }
 }
 
 init();
+initScrollAnimations();
+
+
+// Animações de entrada acionadas pelo scroll (respeita a preferência por movimento reduzido).
+function initScrollAnimations() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const selectors = [
+        '.hero-copy', '.hero-visual', '.testimonials-heading', '.testimonial-carousel',
+        '.testimonial-dots', '.panel-heading', '.content-card', '.stats-grid article',
+        '.job-card', '.course-card', '.career-item', '.resume-preview', '.ranking-card',
+        '.task-card', '.footer-inner'
+    ].join(',');
+    const reveal = (root = document) => {
+        root.querySelectorAll(selectors).forEach((el, index) => {
+            if (el.classList.contains('js-reveal')) return;
+            // Não anima conteúdo dentro de painéis que ainda estão ocultos.
+            if (el.closest('.panel:not(.active), .view:not(.active)')) return;
+            el.classList.add('js-reveal');
+            el.style.setProperty('--reveal-delay', `${(index % 4) * 75}ms`);
+            if (reduceMotion || !('IntersectionObserver' in window)) {
+                el.classList.add('is-visible');
+                return;
+            }
+            observer.observe(el);
+        });
+    };
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
+
+    reveal();
+    // Também observa cards criados dinamicamente pela aplicação.
+    const mutationObserver = new MutationObserver(records => {
+        records.forEach(record => record.addedNodes.forEach(node => {
+            if (node.nodeType === 1) reveal(node);
+        }));
+    });
+    mutationObserver.observe(document.querySelector('main'), { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    // Ao trocar de área/painel, prepara as animações dos elementos que acabaram de aparecer.
+    document.querySelectorAll('.panel, .view').forEach(el => {
+        new MutationObserver(() => reveal(document)).observe(el, { attributes: true, attributeFilter: ['class'] });
+    });
+}
