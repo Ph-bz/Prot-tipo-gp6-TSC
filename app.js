@@ -62,7 +62,8 @@ function configureWorkspaceNav(role) {
     const nav = $('#mainNav');
     if (!nav) return;
     if (role === 'student') nav.innerHTML = '<button data-panel="student-home">Início</button><button data-panel="student-jobs">Vagas</button><button data-panel="learning">Cursos</button><button data-panel="ranking">Ranking</button><button data-panel="student-overview">Perfil</button>';
-    else nav.innerHTML = '<button data-panel="company-vacancies">Vagas</button><button data-panel="company-candidates">Candidatos</button><button data-panel="company-profile">Perfil</button>';
+    el
+    nav.innerHTML = '<button data-panel="company-vacancies">Vagas</button><button data-panel="company-candidates">Candidatos</button><button data-panel="company-profile">Perfil</button>';
     nav.classList.add('workspace-topnav');
     nav.setAttribute('aria-label', role === 'student' ? 'Navegação do estudante' : 'Navegação da empresa');
     updateHeader();
