@@ -5918,3 +5918,50 @@ body[data-account-page] .content-card textarea::placeholder {
         font-size: .7rem;
     }
 }
+/* ===== Tela de abertura (splash) ===== */
+.splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    animation: splashOut .45s ease 1.6s forwards;
+    cursor: pointer;
+}
+.splash-inner {
+    display: grid;
+    justify-items: center;
+    gap: 22px;
+}
+.splash-logo {
+    width: min(240px, 60vw);
+    height: auto;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: splashLogo .6s ease .1s forwards;
+}
+.splash-bar {
+    width: min(160px, 40vw);
+    height: 4px;
+    border-radius: 99px;
+    background: var(--line);
+    overflow: hidden;
+}
+.splash-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--blue), var(--pink), var(--yellow));
+    animation: splashBar 1.2s ease .3s forwards;
+}
+body.splash-open { overflow: hidden; }
+@keyframes splashLogo { to { opacity: 1; transform: none; } }
+@keyframes splashBar { to { width: 100%; } }
+@keyframes splashOut { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+    .splash { animation-duration: .2s; animation-delay: .6s; }
+    .splash-logo { animation-duration: .01s; }
+    .splash-bar span { animation-duration: .5s; animation-delay: 0s; }
+}

@@ -12,6 +12,24 @@
 </head>
 
 <body>
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <img class="splash-logo" src="./rotajovemlogo.jpeg" alt="">
+      <div class="splash-bar"><span></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var s = document.getElementById('splash');
+      try { if (sessionStorage.getItem('rjSplashSeen')) { s.remove(); return; } sessionStorage.setItem('rjSplashSeen', '1'); } catch (e) {}
+      document.body.classList.add('splash-open');
+      var done = function () { if (!s.isConnected) return; s.remove(); document.body.classList.remove('splash-open'); };
+      s.addEventListener('animationend', function (e) { if (e.target === s) done(); });
+      s.addEventListener('click', done);
+      setTimeout(done, 2600);
+    })();
+  </script>
+
   <header class="topbar">
     <a class="brand" href="index.html#inicio"
       aria-label="Rota Jovem, início"><img src="./rotajovemlogo.jpeg" alt="logo"></a>
@@ -598,6 +616,11 @@
               <h1>Dados da empresa.</h1>
             </div>
           </div>
+          <form id="companyProfileForm" class="content-card form-stack"><label>Nome da empresa<input class="field" name="name"
+                required></label><label>E-mail<input class="field" name="email" type="email"
+                required></label><label>CNPJ<input class="field" name="cnpj" inputmode="numeric"
+                placeholder="00.000.000/0000-00" maxlength="18" required></label><button class="btn btn-primary"
+              type="submit">Salvar perfil</button></form>
         </section>
       </div>
     </section>
