@@ -7,16 +7,16 @@
   <meta name="theme-color" content="#2457d6">
   <title>Rota Jovem | Área do empresa</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./rotajovemletrar.png">
   <script src="app.js" defer></script>
 <style>body[data-account-page="company"] #view-home, body[data-account-page="company"] #view-student {display:none!important} body[data-account-page="company"] #view-company {display:block!important} body[data-account-page="company"] #mainNav a[href="#inicio"] {display:none}</style></head>
 
 <body data-account-page="company">
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Rota Jovem, início"><span>rota<strong>jovem</strong></span></a>
+    <a class="brand" href="index.html#inicio"
+      aria-label="Rota Jovem, início"><img src="./rotajovemlogo.jpeg" alt="logo"></a>
     <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">Menu</button>
-    <nav id="mainNav" class="main-nav">
-      <a href="#inicio" data-view="home" id="homeNavLink">Início</a><a href="#recursos">Recursos</a><a href="#como-funciona">Como funciona</a>
-    </nav>
+    <nav id="mainNav" class="main-nav workspace-topnav" aria-label="Navegação da empresa"><button data-panel="company-vacancies">Vagas</button><button data-panel="company-candidates">Candidatos</button><button data-panel="company-profile">Perfil</button></nav>
     <div class="top-actions" id="topActions">
       <button class="btn btn-quiet" data-action="open-login">Entrar</button>
       <button class="btn btn-primary" data-action="open-register">Criar conta</button>
@@ -109,6 +109,13 @@
           <button type="button" data-testimonial-index="2" aria-label="Avaliação 3"></button>
         </div>
       </section>
+
+      <section class="home-about shell" id="quem-somos">
+        <div class="about-mark">RJ</div>
+        <div><p class="eyebrow">Quem somos</p><h2>Conectamos jovens a novos caminhos.</h2>
+        <p>Somos um grupo de 7 integrantes e criamos a Rota Jovem para aproximar jovens, especialmente de regiões periféricas, do mercado de trabalho. Reunimos orientação profissional, capacitação e oportunidades para tornar esse caminho mais acessível.</p>
+        <p>Nosso projeto se inspira nos ODS 4 (Educação de Qualidade), 8 (Trabalho Decente e Crescimento Econômico) e 10 (Redução das Desigualdades), apoiando jovens em sua preparação e empresas na descoberta de novos talentos.</p></div>
+      </section>
       <section class="home-final-cta"><div class="shell final-cta-inner"><div><p class="eyebrow">Seu futuro não precisa esperar</p><h2>Vamos descobrir até onde sua rota pode chegar?</h2><p>Crie sua conta e comece a explorar.</p></div><button class="btn btn-dark btn-lg" data-action="open-register">Começar agora <span>↗</span></button></div></section>
     </section>
 
@@ -117,25 +124,33 @@
         <button class="area-menu-toggle" type="button" aria-expanded="false" aria-controls="studentMenuLinks"><span
             class="hamburger-lines" aria-hidden="true"><i></i><i></i><i></i></span> Minha área</button>
         <div class="area-menu-links" id="studentMenuLinks">
-          <p class="eyebrow">Área do estudante</p>
+          <p class="eyebrow">Minha área</p>
           <h2 id="studentGreeting">Sua jornada</h2>
-          <button class="side-link active" data-panel="student-overview">Visão geral</button>
+          <button class="side-link" data-panel="student-overview">Visão geral / Rota / Trilha</button>
           <button class="side-link" data-panel="career">Orientação profissional</button>
-          <button class="side-link" data-panel="learning">Cursos e certificados</button>
-          <button class="side-link" data-panel="resume">Meu currículo</button>
-          <button class="side-link" data-panel="student-jobs">Encontrar vagas</button>
-          <button class="side-link" data-panel="tasks">Microtarefas</button>
-          <button class="side-link" data-panel="ranking">Ranking e reconhecimento</button>
-          <button class="side-link" data-panel="profile">Meu perfil</button>
+          <button class="side-link" data-panel="resume">Currículo</button>
+          <button class="side-link" data-panel="learning">Cursos em andamento</button>
         </div>
       </aside>
       <div class="dashboard-main">
-        <section class="panel active" id="panel-student-overview">
+                <section class="panel active" id="panel-student-home">
+          <div class="panel-heading"><div><p class="eyebrow">Oportunidades e comunidade</p><h1>Início</h1><p>Encontre vagas anunciadas e acompanhe o ranking mensal.</p></div></div>
+        <section class="content-card inicio-opportunities">
+          <div class="card-head"><div><p class="eyebrow">Oportunidades</p><h2>Vagas anunciadas</h2></div><button class="text-button" data-panel="student-jobs">Ver todas</button></div>
+          <div id="inicioJobResults" class="job-grid"></div>
+        </section>
+        <section class="content-card inicio-ranking">
+          <div class="card-head"><div><p class="eyebrow">Liga mensal</p><h2>Ranking da comunidade</h2></div><span class="pill">Demonstrativo</span></div>
+          <div id="inicioLeagueSummary" class="league-summary"></div><div id="rankingListInicio" class="ranking-list"></div>
+        </section>
+        </section>
+
+        <section class="panel" id="panel-student-overview">
           <div class="panel-heading">
             <div>
               <p class="eyebrow">Seu espaço</p>
-              <h1>Continue de onde parou.</h1>
-              <p>Organize seu desenvolvimento e acompanhe seus próximos passos.</p>
+              <h1>Visão geral da sua jornada</h1>
+              <p>Acompanhe sua trilha de desenvolvimento e continue avançando no seu ritmo.</p>
             </div>
           </div>
           <section class="content-card mountain-route">
@@ -152,46 +167,18 @@
                 class="route-stop" data-panel-link="learning"><span
                   class="route-number">2</span><strong>Preparar</strong><small>Capacitação e cursos</small><i
                   id="routeStatus2">Próxima etapa</i></button><span class="route-connector"></span><button
-                class="route-stop" data-panel-link="tasks"><span
-                  class="route-number">3</span><strong>Praticar</strong><small>Atividades e experiências</small><i
-                  id="routeStatus3">Em seguida</i></button><span class="route-connector"></span><button
-                class="route-stop" data-panel-link="resume"><span class="route-number">4</span><strong>Se
-                  apresentar</strong><small>Currículo e perfil</small><i id="routeStatus4">Em seguida</i></button><span
+                class="route-stop" data-panel-link="resume"><span class="route-number">3</span><strong>Se
+                  apresentar</strong><small>Currículo e perfil</small><i id="routeStatus3">Em seguida</i></button><span
                 class="route-connector"></span><button class="route-stop" data-panel-link="student-jobs"><span
-                  class="route-number">5</span><strong>Chegar ao topo</strong><small>Vagas e entrevistas</small><i
-                  id="routeStatus5">Objetivo da jornada</i></button></div>
-            <div class="route-bottom"><span id="routeProgressText">0 de 5 etapas iniciadas</span>
+                  class="route-number">4</span><strong>Chegar ao topo</strong><small>Vagas e entrevistas</small><i
+                  id="routeStatus4">Objetivo da jornada</i></button></div>
+            <div class="route-bottom"><span id="routeProgressText">0 de 4 etapas iniciadas</span>
               <div class="route-progress"><span id="routeProgressBar"></span></div><button class="btn btn-primary"
                 data-panel-link="career">Continuar trilha</button>
             </div>
           </section>
-          <div class="stats-grid">
-            <article><span>Etapas concluídas</span><b id="statSteps">0 de 4</b></article>
-            <article><span>Cursos concluídos</span><b id="statCourses">0</b></article>
-            <article><span>Certificados enviados</span><b id="statCertificates">0</b></article>
-          </div>
-          <div class="content-grid">
-            <article class="content-card">
-              <div class="card-head">
-                <h3>Próximos passos</h3><span class="pill">Seu progresso</span>
-              </div>
-              <div id="nextSteps" class="check-list"></div>
-            </article>
-            <article class="content-card">
-              <div class="card-head">
-                <h3>Recomendação para você</h3>
-              </div>
-              <div id="studentRecommendation"></div><button class="btn btn-outline full"
-                data-panel-link="career">Explorar orientação profissional</button>
-            </article>
-          </div>
-          <div class="content-card">
-            <div class="card-head">
-              <h3>Oportunidades recentes</h3><button class="text-button" data-panel-link="student-jobs">Ver
-                todas</button>
-            </div>
-            <div id="studentRecentJobs" class="compact-list"></div>
-          </div>
+
+
         </section>
 
         <section class="panel" id="panel-career">
@@ -298,35 +285,12 @@
           </form>
           <div id="jobResults" class="job-grid"></div>
         </section>
-
-        <section class="panel" id="panel-tasks">
-          <div class="panel-heading">
-            <div>
-              <p class="eyebrow">Microtarefas</p>
-              <h1>Atividades de curta duração.</h1>
-              <p>Esta área é demonstrativa. No projeto, tarefas remuneradas ficam restritas a pessoas com 18 anos ou
-                mais.</p>
-            </div>
-          </div>
-          <div id="taskAgeNotice" class="notice" hidden></div>
-          <div id="taskStudentArea">
-            <div class="content-card">
-              <h3>Dados de recebimento</h3>
-              <p>Por segurança, este protótipo não solicita nem armazena dados bancários reais. Uma versão de produção
-                exigiria provedor de pagamentos e controles de segurança apropriados.</p>
-              <p class="muted">Cadastro de recebimento: não disponível nesta demonstração.</p>
-            </div>
-            <div id="taskList" class="task-grid"></div>
-          </div>
-        </section>
-
-        <section class="panel" id="panel-ranking">
+<section class="panel" id="panel-ranking">
           <div class="panel-heading">
             <div>
               <p class="eyebrow">Reconhecimento</p>
               <h1>Seu progresso conta.</h1>
-              <p>Uma proposta de ranking por participação em cursos e atividades concluídas, com ligas e possíveis
-                recompensas educativas.</p>
+              <p>Ganhe pontos com sua participação e dispute posições nas ligas do ranking mensal.</p>
             </div>
           </div>
           <div class="content-card league-card">
@@ -337,13 +301,12 @@
             <p id="pointsText">0 pontos</p>
           </div>
           <div class="content-card">
-            <h3>Como poderia funcionar</h3>
-            <p>Os pontos representam participação no protótipo. Vouchers, visitas a empresas e outras recompensas são
-              ideias para uma etapa futura; não há prêmios reais disponíveis nesta versão.</p>
+            <h3>Como funciona</h3>
+            <p>Os pontos representam participação no protótipo. Os pontos são demonstrativos e acompanham sua evolução. O ranking inclui participantes fictícios.</p>
           </div>
           <div class="content-card">
             <div class="card-head">
-              <h3>Ranking local</h3><span class="pill">Dados demonstrativos</span>
+              <h3>Ranking mensal</h3><span class="pill">Dados demonstrativos</span>
             </div>
             <div id="rankingList" class="ranking-list"></div>
           </div>
@@ -381,7 +344,6 @@
           <h2 id="companyGreeting">Painel da empresa</h2>
           <button class="side-link active" data-panel="company-overview">Visão geral</button>
           <button class="side-link" data-panel="company-vacancies">Vagas de emprego</button>
-          <button class="side-link" data-panel="company-tasks">Microtarefas</button>
           <button class="side-link" data-panel="company-candidates">Candidatos compatíveis</button>
           <button class="side-link" data-panel="company-plan">Planos e divulgação</button>
           <button class="side-link" data-panel="company-profile">Perfil da empresa</button>
@@ -399,7 +361,6 @@
           <div class="stats-grid">
             <article><span>Vagas publicadas</span><b id="companyStatJobs">0</b></article>
             <article><span>Inscrições recebidas</span><b id="companyStatApps">0</b></article>
-            <article><span>Microtarefas abertas</span><b id="companyStatTasks">0</b></article>
           </div>
           <div class="content-card">
             <div class="card-head">
@@ -454,32 +415,7 @@
             <div id="companyVacancyList" class="compact-list"></div>
           </div>
         </section>
-        <section class="panel" id="panel-company-tasks">
-          <div class="panel-heading">
-            <div>
-              <p class="eyebrow">Atividades</p>
-              <h1>Publique microtarefas.</h1>
-              <p>Esta funcionalidade é um protótipo e deve ser revisada juridicamente antes de uso real.</p>
-            </div>
-          </div>
-          <form id="taskForm" class="content-card form-grid">
-            <label class="wide">Título da tarefa<input class="field" name="title" required
-                placeholder="Ex.: Organizar uma planilha de demonstração"></label><label>Categoria<input class="field"
-                name="area" required placeholder="Ex.: dados"></label><label>Prazo em dias<input class="field"
-                name="deadline" type="number" min="1" max="90" value="7" required></label>
-            <label>Valor demonstrativo (R$)<input class="field" name="payment" type="number" min="0" step="0.01"
-                required placeholder="0,00"></label><label>Certificado obrigatório<input class="field"
-                name="certificate" placeholder="Nenhum, se não houver"></label>
-            <label class="wide">Descrição e entrega esperada<textarea class="field" name="description" rows="3"
-                required></textarea></label>
-            <div class="wide"><button class="btn btn-primary" type="submit">Publicar microtarefa</button></div>
-          </form>
-          <div class="content-card">
-            <h3>Microtarefas publicadas</h3>
-            <div id="companyTaskList" class="compact-list"></div>
-          </div>
-        </section>
-        <section class="panel" id="panel-company-candidates">
+<section class="panel" id="panel-company-candidates">
           <div class="panel-heading">
             <div>
               <p class="eyebrow">Seleção</p>
@@ -561,7 +497,8 @@
   </main>
 
   <footer class="footer">
-    <div class="shell footer-inner"><a class="brand" href="#inicio"><span>rota<strong>jovem</strong></span></a><small>Protótipo demonstrativo da Rota
+    <div class="shell footer-inner"><a class="brand" href="index.html#inicio"
+      aria-label="Rota Jovem, início"><img src="./rotajovemlogobranco.png" alt="logo"></a><small>Protótipo demonstrativo da Rota
         Jovem.</small></div>
   </footer>
 
